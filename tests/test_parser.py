@@ -1,5 +1,5 @@
-import json
 from datetime import timezone
+from pathlib import Path
 
 import pytest
 
@@ -26,18 +26,18 @@ def valid_payload():
     }
 
 
-def test_parse_valid_session_file(tmp_path):
-    session_path = tmp_path / "session.json"
-    session_path.write_text(json.dumps(valid_payload()), encoding="utf-8")
+def test_parse_valid_session_file():
+    session_path = Path(__file__).parent / "fixtures" / "valid_session.json"
     parser = SessionParser()
 
     session = parser.parse_file(session_path)
 
-    assert session.session_id == "FF-TEST-0001"
-    assert session.firefighter_user == "JKOWALSKI"
+    payload = valid_payload()
+    assert session.session_id == payload["session_id"]
+    assert session.firefighter_user == payload["firefighter_user"]
     assert session.start_time.tzinfo == timezone.utc
-    assert len(session.transaction_log) == 1
-    assert len(session.change_log) == 0
+    assert len(session.transaction_log) == len(payload["transaction_log"])
+    assert len(session.change_log) == len(payload["change_log"])
 
 
 def test_missing_required_field_raises_error():
