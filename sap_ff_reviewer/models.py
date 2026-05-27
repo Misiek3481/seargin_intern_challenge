@@ -28,3 +28,18 @@ class Session:
     ticket_requester: str | None = None
     alert_source: str | None = None
     raw: dict[str, Any] = field(default_factory=dict)
+
+@dataclass(frozen=True)
+class SessionFeatures:
+    reason: str
+    reason_length: int
+    has_ticket_reference: bool
+    duration_minutes: float
+    is_after_hours: bool
+    tcodes: set[str]
+    transaction_count: int
+    changed_tables: set[str]
+    change_count: int
+    has_os_commands: bool
+    has_debug_activity: bool
+    firefighter_is_requester: bool
