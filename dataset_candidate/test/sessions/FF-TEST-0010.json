@@ -1,0 +1,112 @@
+{
+  "session_id": "FF-TEST-0010",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "BMEYER",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-29T13:15:58Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-29T13:32:54Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-29T13:35:43Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-29T13:39:04Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-29T14:01:41Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-29T14:29:03Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-29T14:57:38Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-29T15:15:20Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-05-29T15:22:01Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-29T15:31:10Z",
+      "tcode": "OB52",
+      "description": "Posting Periods"
+    },
+    {
+      "timestamp": "2026-05-29T15:54:05Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-29T16:00:37Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-29T16:18:36Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-29T16:44:40Z",
+      "tcode": "OB52",
+      "description": "Posting Periods"
+    },
+    {
+      "timestamp": "2026-05-29T17:00:34Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-05-29T17:05:53Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-29T17:28:43Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-29T18:22:01Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-29T18:37:10Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-29T13:11:27Z",
+  "end_time": "2026-05-29T18:43:27Z",
+  "reason_code": "Investigating month-end close issue per REQ0071157",
+  "ticket_reference": "REQ0071157"
+}

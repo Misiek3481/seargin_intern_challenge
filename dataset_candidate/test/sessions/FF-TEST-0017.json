@@ -1,0 +1,72 @@
+{
+  "session_id": "FF-TEST-0017",
+  "firefighter_id": "FF_FI_02",
+  "firefighter_user": "JKOWALSKI",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-30T02:51:56Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-30T02:56:34Z",
+      "tcode": "FB02",
+      "description": "Change Document"
+    },
+    {
+      "timestamp": "2026-05-30T03:02:39Z",
+      "tcode": "SE38",
+      "description": "ABAP Editor"
+    },
+    {
+      "timestamp": "2026-05-30T03:09:09Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-30T03:14:15Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-30T03:25:30Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-30T03:00:09Z",
+      "table": "BSEG",
+      "key": "1001461008596",
+      "field": "WRBTR",
+      "old_value": "50000.00",
+      "new_value": "5000.00"
+    }
+  ],
+  "system_log": [
+    {
+      "timestamp": "2026-05-30T02:57:39Z",
+      "message": "Debug session started by JKOWALSKI",
+      "type": "SM21"
+    },
+    {
+      "timestamp": "2026-05-30T02:59:39Z",
+      "message": "Variable value changed in debug mode (/h replace): WRBTR 50000.00 -> 5000.00",
+      "type": "SM21"
+    },
+    {
+      "timestamp": "2026-05-30T02:59:59Z",
+      "message": "ABAP debugger /h command executed",
+      "type": "SM21"
+    }
+  ],
+  "os_command_log": [],
+  "start_time": "2026-05-30T02:47:39Z",
+  "end_time": "2026-05-30T03:40:39Z",
+  "reason_code": "Investigating posting issue per CHG0098801",
+  "ticket_reference": "CHG0098801"
+}

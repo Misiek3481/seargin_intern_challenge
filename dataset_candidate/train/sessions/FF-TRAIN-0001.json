@@ -1,0 +1,74 @@
+{
+  "session_id": "FF-TRAIN-0001",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "MNOWAK",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "EUROFIN-AT",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-12T12:45:52Z",
+      "tcode": "XK02",
+      "description": "Change Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-12T12:53:18Z",
+      "tcode": "FK02",
+      "description": "Change Vendor (Accounting)"
+    },
+    {
+      "timestamp": "2026-05-12T12:56:45Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-12T12:59:40Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-12T12:59:53Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-12T13:04:53Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-12T13:10:51Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-12T13:12:26Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-12T12:40:53Z",
+      "table": "LFBK",
+      "key": "192452",
+      "field": "BANKN",
+      "old_value": "1234567890",
+      "new_value": "5434337882"
+    },
+    {
+      "timestamp": "2026-05-12T12:41:13Z",
+      "table": "LFBK",
+      "key": "192452",
+      "field": "IBAN",
+      "old_value": "DE89370400440532013000",
+      "new_value": "DE9712345678905434337882"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-12T12:35:53Z",
+  "end_time": "2026-05-12T13:36:53Z",
+  "reason_code": "Updated vendor bank details and triggered payment per CHG0085389",
+  "ticket_reference": "CHG0085389"
+}

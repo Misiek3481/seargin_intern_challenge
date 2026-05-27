@@ -1,0 +1,57 @@
+{
+  "session_id": "FF-TEST-0007",
+  "firefighter_id": "FF_FI_02",
+  "firefighter_user": "BMEYER",
+  "controller": "KAUDIT",
+  "system": "PRD-ECC",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-18T07:31:05Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-18T07:36:43Z",
+      "tcode": "FB02",
+      "description": "Change Document"
+    },
+    {
+      "timestamp": "2026-04-18T07:42:09Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-04-18T07:53:45Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-18T07:55:30Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-18T08:00:34Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-18T07:34:05Z",
+      "table": "BSEG",
+      "key": "1005095306899",
+      "field": "HKONT",
+      "old_value": "411000",
+      "new_value": "411500"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-18T07:27:25Z",
+  "end_time": "2026-04-18T08:10:25Z",
+  "reason_code": "Fixed payment posting issue requested in REQ0064257; requester: BMEYER (self)",
+  "ticket_reference": "REQ0064257",
+  "ticket_requester": "BMEYER"
+}

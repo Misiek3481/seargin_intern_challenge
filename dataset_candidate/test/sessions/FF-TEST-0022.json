@@ -1,0 +1,55 @@
+{
+  "session_id": "FF-TEST-0022",
+  "firefighter_id": "FF_BASIS_03",
+  "firefighter_user": "SSCHMIDT",
+  "controller": "RGRC",
+  "system": "PRD-ECC",
+  "client": "MEGAMANU-PL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-09T20:29:51Z",
+      "tcode": "SM51",
+      "description": "Server Overview"
+    },
+    {
+      "timestamp": "2026-05-09T20:32:55Z",
+      "tcode": "SM49",
+      "description": "External OS Commands"
+    },
+    {
+      "timestamp": "2026-05-09T20:36:14Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-09T20:36:18Z",
+      "tcode": "SM49",
+      "description": "External OS Commands"
+    },
+    {
+      "timestamp": "2026-05-09T20:36:25Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [
+    {
+      "timestamp": "2026-05-09T20:32:03Z",
+      "command": "ZBR_BACKUP_CLEAR",
+      "parameters": "/oracle/PRD/sapdata1/*.dbf older 30",
+      "executed_by": "SSCHMIDT"
+    },
+    {
+      "timestamp": "2026-05-09T20:35:03Z",
+      "command": "ZSH_SCRIPT",
+      "parameters": "rm -rf /tmp/sapdumps/",
+      "executed_by": "SSCHMIDT"
+    }
+  ],
+  "start_time": "2026-05-09T20:27:03Z",
+  "end_time": "2026-05-09T20:54:03Z",
+  "reason_code": "System maintenance per CHG0050991",
+  "ticket_reference": "CHG0050991"
+}

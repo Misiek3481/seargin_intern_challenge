@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TRAIN-0023",
+  "firefighter_id": "FF_BASIS_01",
+  "firefighter_user": "KZIELINSKA",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-31T07:59:13Z",
+      "tcode": "STMS",
+      "description": "Transport Management System"
+    },
+    {
+      "timestamp": "2026-05-31T08:00:07Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-31T08:01:10Z",
+      "tcode": "STMS_IMPORT",
+      "description": "Import Queue"
+    },
+    {
+      "timestamp": "2026-05-31T08:02:45Z",
+      "tcode": "STMS",
+      "description": "Transport Management System"
+    },
+    {
+      "timestamp": "2026-05-31T08:07:06Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-31T08:11:32Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-31T07:56:47Z",
+  "end_time": "2026-05-31T08:11:47Z",
+  "reason_code": "Released stuck transport DEVK917131 from import queue at client request; verified with Basis lead before action; INC0050631",
+  "ticket_reference": "INC0050631"
+}

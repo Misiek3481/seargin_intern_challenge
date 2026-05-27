@@ -1,0 +1,46 @@
+{
+  "session_id": "FF-TRAIN-0013",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "JKOWALCZYK",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-29T10:38:58Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-05-29T10:39:33Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-29T10:40:13Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-05-29T10:52:03Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-29T10:39:59Z",
+      "table": "USR02",
+      "key": "HMUELLER",
+      "field": "UFLAG",
+      "old_value": "64",
+      "new_value": "0"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-29T10:36:59Z",
+  "end_time": "2026-05-29T10:53:59Z",
+  "reason_code": "Reset locked user account for HMUELLER after failed login attempts; verified identity with HR via PRB0070828; no role changes performed",
+  "ticket_reference": "PRB0070828"
+}

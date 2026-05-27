@@ -1,0 +1,42 @@
+{
+  "session_id": "FF-TRAIN-0022",
+  "firefighter_id": "FF_FI_02",
+  "firefighter_user": "PWISNIEWSKI",
+  "controller": "MCONTROL",
+  "system": "PRD-ECC",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-04T19:20:39Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-04-04T19:23:36Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-04T19:25:08Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-04-04T19:30:09Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-04-04T19:35:59Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-04T19:14:53Z",
+  "end_time": "2026-04-04T19:36:53Z",
+  "reason_code": "System error fix",
+  "ticket_reference": "INC0099052"
+}

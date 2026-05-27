@@ -1,0 +1,107 @@
+{
+  "session_id": "FF-TRAIN-0044",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "KZIELINSKA",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-27T08:41:09Z",
+      "tcode": "OB52",
+      "description": "Posting Periods"
+    },
+    {
+      "timestamp": "2026-04-27T08:57:22Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-27T09:10:34Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-27T09:14:26Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-27T09:25:31Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-04-27T09:34:27Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-04-27T09:48:54Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-04-27T09:54:53Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-27T09:58:44Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-27T10:00:13Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-04-27T10:09:25Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-27T10:16:01Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-27T10:39:59Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-04-27T10:55:06Z",
+      "tcode": "OB52",
+      "description": "Posting Periods"
+    },
+    {
+      "timestamp": "2026-04-27T11:11:06Z",
+      "tcode": "OB52",
+      "description": "Posting Periods"
+    },
+    {
+      "timestamp": "2026-04-27T11:29:38Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-27T12:18:05Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-27T12:58:23Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-27T08:29:50Z",
+  "end_time": "2026-04-27T13:10:50Z",
+  "reason_code": "Investigating month-end close issue per PRB0099125",
+  "ticket_reference": "PRB0099125"
+}

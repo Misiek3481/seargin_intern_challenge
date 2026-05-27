@@ -1,0 +1,32 @@
+{
+  "session_id": "FF-TRAIN-0032",
+  "firefighter_id": "FF_BASIS_01",
+  "firefighter_user": "BMEYER",
+  "controller": "RGRC",
+  "system": "PRD-ECC",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-30T14:14:29Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-04-30T14:16:55Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-04-30T14:19:15Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-30T14:11:54Z",
+  "end_time": "2026-04-30T14:21:54Z",
+  "reason_code": "issue",
+  "ticket_reference": "CHG0078777"
+}

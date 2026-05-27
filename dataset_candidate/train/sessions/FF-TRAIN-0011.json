@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TRAIN-0011",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "PWISNIEWSKI",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-20T10:25:19Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-20T10:26:10Z",
+      "tcode": "STMS",
+      "description": "Transport Management System"
+    },
+    {
+      "timestamp": "2026-05-20T10:27:38Z",
+      "tcode": "STMS_IMPORT",
+      "description": "Import Queue"
+    },
+    {
+      "timestamp": "2026-05-20T10:29:28Z",
+      "tcode": "STMS",
+      "description": "Transport Management System"
+    },
+    {
+      "timestamp": "2026-05-20T10:30:46Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-20T10:31:29Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-20T10:24:35Z",
+  "end_time": "2026-05-20T10:36:35Z",
+  "reason_code": "Released stuck transport DEVK913785 from import queue at client request; verified with Basis lead before action; PRB0092471",
+  "ticket_reference": "PRB0092471"
+}

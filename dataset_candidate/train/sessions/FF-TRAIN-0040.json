@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TRAIN-0040",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "KZIELINSKA",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-21T14:34:41Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-21T14:38:58Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-21T14:42:32Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-21T14:47:23Z",
+      "tcode": "MIRO",
+      "description": "Invoice Receipt"
+    },
+    {
+      "timestamp": "2026-05-21T14:50:48Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-21T14:52:16Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-21T14:34:26Z",
+  "end_time": "2026-05-21T14:58:26Z",
+  "reason_code": "FI investigation: posting issue on G/L account per INC0041453",
+  "ticket_reference": "INC0041453"
+}

@@ -1,0 +1,57 @@
+{
+  "session_id": "FF-TRAIN-0042",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "HMUELLER",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-09T12:03:09Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-09T12:05:19Z",
+      "tcode": "FB02",
+      "description": "Change Document"
+    },
+    {
+      "timestamp": "2026-05-09T12:09:57Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-09T12:22:18Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-09T12:22:20Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-09T12:32:32Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-09T12:06:51Z",
+      "table": "BSEG",
+      "key": "1002910593296",
+      "field": "HKONT",
+      "old_value": "411000",
+      "new_value": "411500"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-09T12:00:11Z",
+  "end_time": "2026-05-09T12:49:11Z",
+  "reason_code": "Fixed payment posting issue requested in CHG0070715; requester: HMUELLER (self)",
+  "ticket_reference": "CHG0070715",
+  "ticket_requester": "HMUELLER"
+}

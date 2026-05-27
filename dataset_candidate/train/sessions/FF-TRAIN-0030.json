@@ -1,0 +1,827 @@
+{
+  "session_id": "FF-TRAIN-0030",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "AWEBER",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "EUROFIN-AT",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-03T11:19:06Z",
+      "tcode": "SE38",
+      "description": "ABAP Reporting"
+    },
+    {
+      "timestamp": "2026-04-03T11:20:06Z",
+      "tcode": "ZVENDOR_WHT_UPDATE",
+      "description": "Custom Z-program: WHT bulk update"
+    },
+    {
+      "timestamp": "2026-04-03T11:35:33Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-03T11:44:40Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-03T12:14:10Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-03T11:21:06Z",
+      "table": "LFB1",
+      "key": "109520",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:08Z",
+      "table": "LFB1",
+      "key": "143961",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:10Z",
+      "table": "LFB1",
+      "key": "159174",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:12Z",
+      "table": "LFB1",
+      "key": "156031",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:14Z",
+      "table": "LFB1",
+      "key": "183671",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:16Z",
+      "table": "LFB1",
+      "key": "103966",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:18Z",
+      "table": "LFB1",
+      "key": "136468",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:20Z",
+      "table": "LFB1",
+      "key": "167100",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:22Z",
+      "table": "LFB1",
+      "key": "171489",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:24Z",
+      "table": "LFB1",
+      "key": "113996",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:26Z",
+      "table": "LFB1",
+      "key": "156763",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:28Z",
+      "table": "LFB1",
+      "key": "163434",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:30Z",
+      "table": "LFB1",
+      "key": "158485",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:32Z",
+      "table": "LFB1",
+      "key": "159321",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:34Z",
+      "table": "LFB1",
+      "key": "178039",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:36Z",
+      "table": "LFB1",
+      "key": "179508",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:38Z",
+      "table": "LFB1",
+      "key": "130306",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:40Z",
+      "table": "LFB1",
+      "key": "165681",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:42Z",
+      "table": "LFB1",
+      "key": "100247",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:44Z",
+      "table": "LFB1",
+      "key": "151593",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:46Z",
+      "table": "LFB1",
+      "key": "105640",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:48Z",
+      "table": "LFB1",
+      "key": "126546",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:50Z",
+      "table": "LFB1",
+      "key": "149484",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:52Z",
+      "table": "LFB1",
+      "key": "163009",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:54Z",
+      "table": "LFB1",
+      "key": "112678",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:56Z",
+      "table": "LFB1",
+      "key": "193676",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:21:58Z",
+      "table": "LFB1",
+      "key": "121633",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:00Z",
+      "table": "LFB1",
+      "key": "105649",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:02Z",
+      "table": "LFB1",
+      "key": "170000",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:04Z",
+      "table": "LFB1",
+      "key": "131249",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:06Z",
+      "table": "LFB1",
+      "key": "106033",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:08Z",
+      "table": "LFB1",
+      "key": "142843",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:10Z",
+      "table": "LFB1",
+      "key": "140161",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:12Z",
+      "table": "LFB1",
+      "key": "185597",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:14Z",
+      "table": "LFB1",
+      "key": "174933",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:16Z",
+      "table": "LFB1",
+      "key": "189606",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:18Z",
+      "table": "LFB1",
+      "key": "179813",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:20Z",
+      "table": "LFB1",
+      "key": "179885",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:22Z",
+      "table": "LFB1",
+      "key": "138641",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:24Z",
+      "table": "LFB1",
+      "key": "122654",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:26Z",
+      "table": "LFB1",
+      "key": "125742",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:28Z",
+      "table": "LFB1",
+      "key": "119708",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:30Z",
+      "table": "LFB1",
+      "key": "161832",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:32Z",
+      "table": "LFB1",
+      "key": "132940",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:34Z",
+      "table": "LFB1",
+      "key": "150874",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:36Z",
+      "table": "LFB1",
+      "key": "176941",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:38Z",
+      "table": "LFB1",
+      "key": "183604",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:40Z",
+      "table": "LFB1",
+      "key": "142239",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:42Z",
+      "table": "LFB1",
+      "key": "159172",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:44Z",
+      "table": "LFB1",
+      "key": "195483",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:46Z",
+      "table": "LFB1",
+      "key": "193462",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:48Z",
+      "table": "LFB1",
+      "key": "119627",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:50Z",
+      "table": "LFB1",
+      "key": "115074",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:52Z",
+      "table": "LFB1",
+      "key": "163623",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:54Z",
+      "table": "LFB1",
+      "key": "122783",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:56Z",
+      "table": "LFB1",
+      "key": "120279",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:22:58Z",
+      "table": "LFB1",
+      "key": "142724",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:00Z",
+      "table": "LFB1",
+      "key": "129651",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:02Z",
+      "table": "LFB1",
+      "key": "124134",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:04Z",
+      "table": "LFB1",
+      "key": "130570",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:06Z",
+      "table": "LFB1",
+      "key": "113557",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:08Z",
+      "table": "LFB1",
+      "key": "162604",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:10Z",
+      "table": "LFB1",
+      "key": "112883",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:12Z",
+      "table": "LFB1",
+      "key": "187793",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:14Z",
+      "table": "LFB1",
+      "key": "147556",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:16Z",
+      "table": "LFB1",
+      "key": "119184",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:18Z",
+      "table": "LFB1",
+      "key": "154789",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:20Z",
+      "table": "LFB1",
+      "key": "110107",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:22Z",
+      "table": "LFB1",
+      "key": "106605",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:24Z",
+      "table": "LFB1",
+      "key": "132689",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:26Z",
+      "table": "LFB1",
+      "key": "160444",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:28Z",
+      "table": "LFB1",
+      "key": "122598",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:30Z",
+      "table": "LFB1",
+      "key": "176724",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:32Z",
+      "table": "LFB1",
+      "key": "145512",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:34Z",
+      "table": "LFB1",
+      "key": "100376",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:36Z",
+      "table": "LFB1",
+      "key": "170694",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:38Z",
+      "table": "LFB1",
+      "key": "196076",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:40Z",
+      "table": "LFB1",
+      "key": "158005",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:42Z",
+      "table": "LFB1",
+      "key": "135354",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:44Z",
+      "table": "LFB1",
+      "key": "147022",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:46Z",
+      "table": "LFB1",
+      "key": "167461",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:48Z",
+      "table": "LFB1",
+      "key": "129068",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:50Z",
+      "table": "LFB1",
+      "key": "158412",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:52Z",
+      "table": "LFB1",
+      "key": "115838",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:54Z",
+      "table": "LFB1",
+      "key": "103264",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:56Z",
+      "table": "LFB1",
+      "key": "168751",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:23:58Z",
+      "table": "LFB1",
+      "key": "159663",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:00Z",
+      "table": "LFB1",
+      "key": "140441",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:02Z",
+      "table": "LFB1",
+      "key": "185066",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:04Z",
+      "table": "LFB1",
+      "key": "117268",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:06Z",
+      "table": "LFB1",
+      "key": "122256",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:08Z",
+      "table": "LFB1",
+      "key": "188846",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:10Z",
+      "table": "LFB1",
+      "key": "185982",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:12Z",
+      "table": "LFB1",
+      "key": "177404",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:14Z",
+      "table": "LFB1",
+      "key": "104961",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:16Z",
+      "table": "LFB1",
+      "key": "180974",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:18Z",
+      "table": "LFB1",
+      "key": "125548",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    },
+    {
+      "timestamp": "2026-04-03T11:24:20Z",
+      "table": "LFB1",
+      "key": "102115",
+      "field": "QSSKZ",
+      "old_value": "01",
+      "new_value": "02"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-03T11:19:06Z",
+  "end_time": "2026-04-03T12:34:06Z",
+  "reason_code": "Year-end vendor master cleanup for EU vendors; bulk update of withholding tax codes per pre-approved CHG; reference CHG8569953",
+  "ticket_reference": "CHG8569953"
+}

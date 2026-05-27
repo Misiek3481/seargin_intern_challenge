@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TEST-0001",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "SSCHMIDT",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-10T13:37:30Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-10T13:39:20Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-10T13:43:18Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-10T13:46:07Z",
+      "tcode": "MIRO",
+      "description": "Invoice Receipt"
+    },
+    {
+      "timestamp": "2026-05-10T13:49:14Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-10T13:49:34Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-10T13:35:28Z",
+  "end_time": "2026-05-10T14:04:28Z",
+  "reason_code": "FI investigation: posting issue on G/L account per PRB0097248",
+  "ticket_reference": "PRB0097248"
+}

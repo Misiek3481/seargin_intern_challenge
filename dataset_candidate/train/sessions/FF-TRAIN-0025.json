@@ -1,0 +1,55 @@
+{
+  "session_id": "FF-TRAIN-0025",
+  "firefighter_id": "FF_BASIS_01",
+  "firefighter_user": "SSCHMIDT",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-ECC",
+  "client": "MEGAMANU-PL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-08T00:13:28Z",
+      "tcode": "SM51",
+      "description": "Server Overview"
+    },
+    {
+      "timestamp": "2026-04-08T00:14:41Z",
+      "tcode": "SM49",
+      "description": "External OS Commands"
+    },
+    {
+      "timestamp": "2026-04-08T00:18:32Z",
+      "tcode": "SM49",
+      "description": "External OS Commands"
+    },
+    {
+      "timestamp": "2026-04-08T00:36:05Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-04-08T00:40:35Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [
+    {
+      "timestamp": "2026-04-08T00:16:04Z",
+      "command": "ZBR_BACKUP_CLEAR",
+      "parameters": "/oracle/PRD/sapdata1/*.dbf older 30",
+      "executed_by": "SSCHMIDT"
+    },
+    {
+      "timestamp": "2026-04-08T00:19:04Z",
+      "command": "ZSH_SCRIPT",
+      "parameters": "rm -rf /tmp/sapdumps/",
+      "executed_by": "SSCHMIDT"
+    }
+  ],
+  "start_time": "2026-04-08T00:11:04Z",
+  "end_time": "2026-04-08T00:48:04Z",
+  "reason_code": "System maintenance per INC0050247",
+  "ticket_reference": "INC0050247"
+}

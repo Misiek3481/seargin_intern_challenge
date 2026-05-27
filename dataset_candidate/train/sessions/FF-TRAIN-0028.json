@@ -1,0 +1,71 @@
+{
+  "session_id": "FF-TRAIN-0028",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "TLEWANDOWSKI",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "EUROFIN-AT",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-10T00:29:28Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-04-10T00:31:39Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-10T00:33:39Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-04-10T00:34:47Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-10T00:39:43Z",
+      "tcode": "XK03",
+      "description": "Display Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-04-10T00:42:10Z",
+      "tcode": "XK05",
+      "description": "Block Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-04-10T00:49:24Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-04-10T00:50:10Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-10T01:03:15Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-10T00:42:57Z",
+      "table": "LFA1",
+      "key": "187925",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-10T00:22:57Z",
+  "end_time": "2026-04-10T01:05:57Z",
+  "reason_code": "Resolved failed payment run F110 run ID 20260410-004 for Company Code 1000; root cause: blocked vendor 187925; unblocked after AP team confirmation via REQ0091114",
+  "ticket_reference": "REQ0091114"
+}

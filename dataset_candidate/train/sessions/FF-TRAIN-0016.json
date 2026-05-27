@@ -1,0 +1,97 @@
+{
+  "session_id": "FF-TRAIN-0016",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "ESZYMANSKA",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-06T07:18:15Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-06T07:30:22Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-06T07:47:57Z",
+      "tcode": "OB52",
+      "description": "Posting Periods"
+    },
+    {
+      "timestamp": "2026-05-06T08:02:34Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-06T08:04:22Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-06T08:21:43Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-06T08:24:05Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-06T08:44:58Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-06T09:02:34Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-06T09:30:21Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-05-06T09:30:44Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-06T09:55:31Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-06T10:02:54Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-06T10:23:28Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-06T10:25:14Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-06T10:38:07Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-06T07:12:40Z",
+  "end_time": "2026-05-06T12:29:40Z",
+  "reason_code": "Investigating month-end close issue per REQ0087148",
+  "ticket_reference": "REQ0087148"
+}

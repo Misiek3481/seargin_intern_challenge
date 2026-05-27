@@ -1,0 +1,66 @@
+{
+  "session_id": "FF-TRAIN-0039",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "RKAMINSKI",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-29T20:15:30Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-04-29T20:21:34Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-04-29T20:23:47Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-04-29T20:24:20Z",
+      "tcode": "XK03",
+      "description": "Display Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-04-29T20:27:26Z",
+      "tcode": "XK05",
+      "description": "Block Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-04-29T20:29:53Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-04-29T20:32:52Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-29T20:39:02Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-29T20:25:55Z",
+      "table": "LFA1",
+      "key": "104291",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-29T20:05:55Z",
+  "end_time": "2026-04-29T20:41:55Z",
+  "reason_code": "Resolved failed payment run F110 run ID 20260429-007 for Company Code 2000; root cause: blocked vendor 104291; unblocked after AP team confirmation via CHG0051953",
+  "ticket_reference": "CHG0051953"
+}

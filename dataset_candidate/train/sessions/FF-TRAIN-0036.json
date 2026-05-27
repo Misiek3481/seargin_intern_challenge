@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TRAIN-0036",
+  "firefighter_id": "FF_BASIS_01",
+  "firefighter_user": "MNOWAK",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-14T07:02:28Z",
+      "tcode": "STMS",
+      "description": "Transport Management System"
+    },
+    {
+      "timestamp": "2026-04-14T07:03:48Z",
+      "tcode": "STMS_IMPORT",
+      "description": "Import Queue"
+    },
+    {
+      "timestamp": "2026-04-14T07:04:49Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-14T07:04:55Z",
+      "tcode": "STMS",
+      "description": "Transport Management System"
+    },
+    {
+      "timestamp": "2026-04-14T07:08:31Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-14T07:13:51Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-14T07:00:32Z",
+  "end_time": "2026-04-14T07:25:32Z",
+  "reason_code": "Released stuck transport DEVK941560 from import queue at client request; verified with Basis lead before action; INC0088307",
+  "ticket_reference": "INC0088307"
+}

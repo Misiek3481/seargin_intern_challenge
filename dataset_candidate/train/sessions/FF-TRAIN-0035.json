@@ -1,0 +1,107 @@
+{
+  "session_id": "FF-TRAIN-0035",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "SSCHMIDT",
+  "controller": "MCONTROL",
+  "system": "PRD-ECC",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-08T14:59:49Z",
+      "tcode": "OB52",
+      "description": "Posting Periods"
+    },
+    {
+      "timestamp": "2026-04-08T15:03:34Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-08T15:29:11Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-08T15:48:35Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-04-08T16:13:40Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-08T16:41:23Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-04-08T16:46:28Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-08T17:03:48Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-04-08T17:27:40Z",
+      "tcode": "OB52",
+      "description": "Posting Periods"
+    },
+    {
+      "timestamp": "2026-04-08T17:28:31Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-04-08T17:43:16Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-08T18:12:10Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-04-08T18:29:10Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-08T18:32:18Z",
+      "tcode": "F.01",
+      "description": "Financial Statement"
+    },
+    {
+      "timestamp": "2026-04-08T18:54:44Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-04-08T19:31:47Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-08T19:37:25Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-08T19:57:20Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-08T14:46:54Z",
+  "end_time": "2026-04-08T20:39:54Z",
+  "reason_code": "Investigating month-end close issue per INC0091114",
+  "ticket_reference": "INC0091114"
+}

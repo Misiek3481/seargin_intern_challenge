@@ -1,0 +1,55 @@
+{
+  "session_id": "FF-TRAIN-0012",
+  "firefighter_id": "FF_BASIS_03",
+  "firefighter_user": "PWISNIEWSKI",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-07T22:31:54Z",
+      "tcode": "SM51",
+      "description": "Server Overview"
+    },
+    {
+      "timestamp": "2026-05-07T22:34:46Z",
+      "tcode": "SM49",
+      "description": "External OS Commands"
+    },
+    {
+      "timestamp": "2026-05-07T22:36:43Z",
+      "tcode": "SM49",
+      "description": "External OS Commands"
+    },
+    {
+      "timestamp": "2026-05-07T22:39:19Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-07T22:53:25Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [
+    {
+      "timestamp": "2026-05-07T22:33:07Z",
+      "command": "ZBR_BACKUP_CLEAR",
+      "parameters": "/oracle/PRD/sapdata1/*.dbf older 30",
+      "executed_by": "PWISNIEWSKI"
+    },
+    {
+      "timestamp": "2026-05-07T22:36:07Z",
+      "command": "ZSH_SCRIPT",
+      "parameters": "rm -rf /tmp/sapdumps/",
+      "executed_by": "PWISNIEWSKI"
+    }
+  ],
+  "start_time": "2026-05-07T22:28:07Z",
+  "end_time": "2026-05-07T23:03:07Z",
+  "reason_code": "System maintenance per INC0052027",
+  "ticket_reference": "INC0052027"
+}

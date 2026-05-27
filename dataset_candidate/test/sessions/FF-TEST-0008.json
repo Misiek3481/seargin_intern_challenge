@@ -1,0 +1,42 @@
+{
+  "session_id": "FF-TEST-0008",
+  "firefighter_id": "FF_FI_02",
+  "firefighter_user": "TLEWANDOWSKI",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "EUROFIN-AT",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-24T19:18:59Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-24T19:22:29Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-24T19:24:37Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-24T19:27:21Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-24T19:27:29Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-24T19:17:54Z",
+  "end_time": "2026-05-24T19:45:54Z",
+  "reason_code": "Fixed urgent issue with payment run",
+  "ticket_reference": "PRB0049279"
+}

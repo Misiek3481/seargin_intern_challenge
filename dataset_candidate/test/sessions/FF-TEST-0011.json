@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TEST-0011",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "KZIELINSKA",
+  "controller": "RGRC",
+  "system": "PRD-ECC",
+  "client": "MEGAMANU-PL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-10T11:56:38Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-10T11:58:05Z",
+      "tcode": "STMS",
+      "description": "Transport Management System"
+    },
+    {
+      "timestamp": "2026-04-10T11:58:18Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-10T11:59:53Z",
+      "tcode": "STMS_IMPORT",
+      "description": "Import Queue"
+    },
+    {
+      "timestamp": "2026-04-10T12:02:33Z",
+      "tcode": "STMS",
+      "description": "Transport Management System"
+    },
+    {
+      "timestamp": "2026-04-10T12:07:26Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-10T11:56:25Z",
+  "end_time": "2026-04-10T12:12:25Z",
+  "reason_code": "Released stuck transport DEVP998546 from import queue at client request; verified with Basis lead before action; INC0078603",
+  "ticket_reference": "INC0078603"
+}

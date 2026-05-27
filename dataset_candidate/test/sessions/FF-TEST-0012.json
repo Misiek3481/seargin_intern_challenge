@@ -1,0 +1,42 @@
+{
+  "session_id": "FF-TEST-0012",
+  "firefighter_id": "FF_BASIS_03",
+  "firefighter_user": "HMUELLER",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-03T02:49:57Z",
+      "tcode": "SM37",
+      "description": "Job Overview"
+    },
+    {
+      "timestamp": "2026-05-03T02:51:34Z",
+      "tcode": "SM50",
+      "description": "Process Overview"
+    },
+    {
+      "timestamp": "2026-05-03T02:52:36Z",
+      "tcode": "ST22",
+      "description": "Runtime Errors"
+    },
+    {
+      "timestamp": "2026-05-03T02:55:56Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-03T03:02:55Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-03T02:47:30Z",
+  "end_time": "2026-05-03T03:22:30Z",
+  "reason_code": "Production issue",
+  "ticket_reference": ""
+}

@@ -1,0 +1,51 @@
+{
+  "session_id": "FF-TRAIN-0029",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "ESZYMANSKA",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-03T14:37:14Z",
+      "tcode": "SE16N",
+      "description": "General Table Display (with edit)"
+    },
+    {
+      "timestamp": "2026-04-03T14:37:41Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-04-03T14:40:30Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-03T14:40:53Z",
+      "tcode": "SM30",
+      "description": "Table Maintenance"
+    },
+    {
+      "timestamp": "2026-04-03T14:44:18Z",
+      "tcode": "SE16N",
+      "description": "General Table Display (with edit)"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-03T14:37:13Z",
+      "table": "T001",
+      "key": "1000",
+      "field": "WAERS",
+      "old_value": "EUR",
+      "new_value": "USD"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-03T14:33:53Z",
+  "end_time": "2026-04-03T14:59:53Z",
+  "reason_code": "Quick configuration check per PRB0070803",
+  "ticket_reference": "PRB0070803"
+}

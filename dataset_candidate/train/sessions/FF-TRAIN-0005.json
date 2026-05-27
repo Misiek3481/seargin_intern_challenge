@@ -1,0 +1,51 @@
+{
+  "session_id": "FF-TRAIN-0005",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "HMUELLER",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-26T10:41:37Z",
+      "tcode": "SE16N",
+      "description": "General Table Display (with edit)"
+    },
+    {
+      "timestamp": "2026-04-26T10:44:26Z",
+      "tcode": "SM30",
+      "description": "Table Maintenance"
+    },
+    {
+      "timestamp": "2026-04-26T10:46:48Z",
+      "tcode": "SE16N",
+      "description": "General Table Display (with edit)"
+    },
+    {
+      "timestamp": "2026-04-26T10:47:01Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-04-26T10:47:27Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-26T10:43:25Z",
+      "table": "T001",
+      "key": "1000",
+      "field": "WAERS",
+      "old_value": "EUR",
+      "new_value": "USD"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-26T10:40:05Z",
+  "end_time": "2026-04-26T10:59:05Z",
+  "reason_code": "Quick configuration check per PRB0070705",
+  "ticket_reference": "PRB0070705"
+}

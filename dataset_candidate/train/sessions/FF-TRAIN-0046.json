@@ -1,0 +1,51 @@
+{
+  "session_id": "FF-TRAIN-0046",
+  "firefighter_id": "FF_BASIS_01",
+  "firefighter_user": "JKOWALCZYK",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-20T09:28:26Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-20T09:28:39Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-05-20T09:30:34Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-05-20T09:33:02Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-20T09:46:15Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-20T09:30:05Z",
+      "table": "USR02",
+      "key": "JKOWALSKI",
+      "field": "UFLAG",
+      "old_value": "64",
+      "new_value": "0"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-20T09:27:05Z",
+  "end_time": "2026-05-20T09:48:05Z",
+  "reason_code": "Reset locked user account for JKOWALSKI after failed login attempts; verified identity with HR via PRB0082113; no role changes performed",
+  "ticket_reference": "PRB0082113"
+}

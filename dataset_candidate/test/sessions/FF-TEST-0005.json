@@ -1,0 +1,102 @@
+{
+  "session_id": "FF-TEST-0005",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "JKOWALCZYK",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-18T22:44:32Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-18T22:46:17Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-18T22:51:42Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-18T22:54:18Z",
+      "tcode": "XK03",
+      "description": "Display Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-18T22:58:27Z",
+      "tcode": "XK02",
+      "description": "Change Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-18T23:04:16Z",
+      "tcode": "FK02",
+      "description": "Change Vendor (Accounting)"
+    },
+    {
+      "timestamp": "2026-05-18T23:07:04Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-18T23:08:19Z",
+      "tcode": "XK02",
+      "description": "Change Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-18T23:10:23Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-18T23:12:06Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-18T23:22:50Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-18T23:31:38Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-18T22:59:58Z",
+      "table": "LFA1",
+      "key": "145832",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-05-18T23:04:58Z",
+      "table": "LFBK",
+      "key": "145832",
+      "field": "BANKN",
+      "old_value": "1234567890",
+      "new_value": "9988776655"
+    },
+    {
+      "timestamp": "2026-05-18T23:05:18Z",
+      "table": "LFA1",
+      "key": "145832",
+      "field": "NAME1",
+      "old_value": "ACME Supplier GmbH",
+      "new_value": "ACME Supplier GmbH"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-18T22:41:38Z",
+  "end_time": "2026-05-18T23:32:38Z",
+  "reason_code": "Resolved failed payment run F110 run ID 20260518-001 for Company Code 1000; root cause: blocked vendor 145832; unblocked after AP team confirmation via REQ0042356",
+  "ticket_reference": "REQ0042356"
+}

@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TRAIN-0037",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "HMUELLER",
+  "controller": "RGRC",
+  "system": "PRD-ECC",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-05T14:12:33Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-04-05T14:13:34Z",
+      "tcode": "SM50",
+      "description": "Process Overview"
+    },
+    {
+      "timestamp": "2026-04-05T14:15:01Z",
+      "tcode": "SM37",
+      "description": "Job Overview"
+    },
+    {
+      "timestamp": "2026-04-05T14:17:44Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-04-05T14:24:31Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-05T14:25:32Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-05T14:10:34Z",
+  "end_time": "2026-04-05T14:27:34Z",
+  "reason_code": "Investigated SM12 lock entries blocking month-end close per REQ0040614; identified orphaned lock from killed batch job, no manual unlock needed; documented findings.",
+  "ticket_reference": "REQ0040614"
+}

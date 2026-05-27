@@ -1,0 +1,56 @@
+{
+  "session_id": "FF-TEST-0015",
+  "firefighter_id": "FF_BASIS_03",
+  "firefighter_user": "PWISNIEWSKI",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "EUROFIN-AT",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-06T20:40:15Z",
+      "tcode": "FB02",
+      "description": "Change Document"
+    },
+    {
+      "timestamp": "2026-05-06T20:46:47Z",
+      "tcode": "XK02",
+      "description": "Change Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-06T20:50:50Z",
+      "tcode": "F-53",
+      "description": "Post Outgoing Payments"
+    },
+    {
+      "timestamp": "2026-05-06T20:56:16Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-06T20:57:43Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-06T21:06:03Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-06T20:47:34Z",
+      "table": "LFA1",
+      "key": "196437",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-06T20:37:34Z",
+  "end_time": "2026-05-06T21:22:34Z",
+  "reason_code": "Reset user lock for HR consultant",
+  "ticket_reference": "PRB0074716"
+}

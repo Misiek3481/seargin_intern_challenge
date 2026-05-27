@@ -1,0 +1,46 @@
+{
+  "session_id": "FF-TEST-0021",
+  "firefighter_id": "FF_BASIS_03",
+  "firefighter_user": "SSCHMIDT",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-14T12:13:30Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-04-14T12:14:32Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-04-14T12:15:30Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-14T12:21:09Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-14T12:13:38Z",
+      "table": "USR02",
+      "key": "PWISNIEWSKI",
+      "field": "UFLAG",
+      "old_value": "64",
+      "new_value": "0"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-14T12:11:38Z",
+  "end_time": "2026-04-14T12:22:38Z",
+  "reason_code": "Reset user lock PWISNIEWSKI per INC0045145",
+  "ticket_reference": "INC0045145"
+}

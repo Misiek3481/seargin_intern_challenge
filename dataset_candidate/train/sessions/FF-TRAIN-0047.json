@@ -1,0 +1,76 @@
+{
+  "session_id": "FF-TRAIN-0047",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "SSCHMIDT",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-09T03:08:20Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-09T03:15:49Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-09T03:16:32Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-09T03:17:49Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-09T03:25:59Z",
+      "tcode": "XK03",
+      "description": "Display Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-09T03:33:03Z",
+      "tcode": "XK05",
+      "description": "Block Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-09T03:35:06Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-09T03:37:17Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-09T03:38:14Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-09T03:46:08Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-09T03:22:45Z",
+      "table": "LFA1",
+      "key": "143746",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-09T03:02:45Z",
+  "end_time": "2026-05-09T03:47:45Z",
+  "reason_code": "Resolved failed payment run F110 run ID 20260509-007 for Company Code 3000; root cause: blocked vendor 143746; unblocked after AP team confirmation via PRB0077756",
+  "ticket_reference": "PRB0077756"
+}

@@ -1,0 +1,81 @@
+{
+  "session_id": "FF-TEST-0006",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "MNOWAK",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-18T04:31:56Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-18T04:34:50Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-18T04:40:38Z",
+      "tcode": "XK03",
+      "description": "Display Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-18T04:42:15Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-18T04:45:02Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-18T04:46:42Z",
+      "tcode": "XK05",
+      "description": "Block Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-18T04:52:46Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-18T04:54:07Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-18T05:00:02Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-18T05:10:41Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-18T05:15:19Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-18T04:45:45Z",
+      "table": "LFA1",
+      "key": "158893",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-18T04:25:45Z",
+  "end_time": "2026-05-18T05:16:45Z",
+  "reason_code": "Resolved failed payment run F110 run ID 20260518-001 for Company Code 2000; root cause: blocked vendor 158893; unblocked after AP team confirmation via INC0072248",
+  "ticket_reference": "INC0072248"
+}

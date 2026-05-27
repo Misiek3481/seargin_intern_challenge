@@ -1,0 +1,1670 @@
+{
+  "session_id": "FF-TRAIN-0026",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "JKOWALCZYK",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "EUROFIN-AT",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-09T05:38:34Z",
+      "tcode": "SE38",
+      "description": "ABAP Reporting"
+    },
+    {
+      "timestamp": "2026-04-09T05:39:34Z",
+      "tcode": "SE16N",
+      "description": "General Table Display (with edit)"
+    },
+    {
+      "timestamp": "2026-04-09T06:12:33Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-09T07:18:23Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-09T05:40:04Z",
+      "table": "LFA1",
+      "key": "198553",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:05Z",
+      "table": "LFA1",
+      "key": "142668",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:06Z",
+      "table": "LFA1",
+      "key": "179532",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:07Z",
+      "table": "LFA1",
+      "key": "124934",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:08Z",
+      "table": "LFA1",
+      "key": "186212",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:09Z",
+      "table": "LFA1",
+      "key": "120550",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:10Z",
+      "table": "LFA1",
+      "key": "195191",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:11Z",
+      "table": "LFA1",
+      "key": "172173",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:12Z",
+      "table": "LFA1",
+      "key": "170532",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:13Z",
+      "table": "LFA1",
+      "key": "109605",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:14Z",
+      "table": "LFA1",
+      "key": "111559",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:15Z",
+      "table": "LFA1",
+      "key": "124091",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:16Z",
+      "table": "LFA1",
+      "key": "130205",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:17Z",
+      "table": "LFA1",
+      "key": "178482",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:18Z",
+      "table": "LFA1",
+      "key": "174206",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:19Z",
+      "table": "LFA1",
+      "key": "167565",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:20Z",
+      "table": "LFA1",
+      "key": "147580",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:21Z",
+      "table": "LFA1",
+      "key": "150410",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:22Z",
+      "table": "LFA1",
+      "key": "154602",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:23Z",
+      "table": "LFA1",
+      "key": "169287",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:24Z",
+      "table": "LFA1",
+      "key": "176261",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:25Z",
+      "table": "LFA1",
+      "key": "145661",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:26Z",
+      "table": "LFA1",
+      "key": "182154",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:27Z",
+      "table": "LFA1",
+      "key": "187698",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:28Z",
+      "table": "LFA1",
+      "key": "170015",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:29Z",
+      "table": "LFA1",
+      "key": "143598",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:30Z",
+      "table": "LFA1",
+      "key": "189206",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:31Z",
+      "table": "LFA1",
+      "key": "161944",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:32Z",
+      "table": "LFA1",
+      "key": "130848",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:33Z",
+      "table": "LFA1",
+      "key": "155166",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:34Z",
+      "table": "LFA1",
+      "key": "140922",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:35Z",
+      "table": "LFA1",
+      "key": "137680",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:36Z",
+      "table": "LFA1",
+      "key": "199571",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:37Z",
+      "table": "LFA1",
+      "key": "146110",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:38Z",
+      "table": "LFA1",
+      "key": "147051",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:39Z",
+      "table": "LFA1",
+      "key": "170308",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:40Z",
+      "table": "LFA1",
+      "key": "129229",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:41Z",
+      "table": "LFA1",
+      "key": "114502",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:42Z",
+      "table": "LFA1",
+      "key": "179225",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:43Z",
+      "table": "LFA1",
+      "key": "142757",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:44Z",
+      "table": "LFA1",
+      "key": "132246",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:45Z",
+      "table": "LFA1",
+      "key": "137600",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:46Z",
+      "table": "LFA1",
+      "key": "168488",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:47Z",
+      "table": "LFA1",
+      "key": "197145",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:48Z",
+      "table": "LFA1",
+      "key": "176561",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:49Z",
+      "table": "LFA1",
+      "key": "194603",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:50Z",
+      "table": "LFA1",
+      "key": "149851",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:51Z",
+      "table": "LFA1",
+      "key": "144408",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:52Z",
+      "table": "LFA1",
+      "key": "156613",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:53Z",
+      "table": "LFA1",
+      "key": "119627",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:54Z",
+      "table": "LFA1",
+      "key": "155920",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:55Z",
+      "table": "LFA1",
+      "key": "114176",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:56Z",
+      "table": "LFA1",
+      "key": "174965",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:57Z",
+      "table": "LFA1",
+      "key": "110060",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:58Z",
+      "table": "LFA1",
+      "key": "140782",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:40:59Z",
+      "table": "LFA1",
+      "key": "108258",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:00Z",
+      "table": "LFA1",
+      "key": "135870",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:01Z",
+      "table": "LFA1",
+      "key": "187682",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:02Z",
+      "table": "LFA1",
+      "key": "105430",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:03Z",
+      "table": "LFA1",
+      "key": "124144",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:04Z",
+      "table": "LFA1",
+      "key": "103244",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:05Z",
+      "table": "LFA1",
+      "key": "134629",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:06Z",
+      "table": "LFA1",
+      "key": "104728",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:07Z",
+      "table": "LFA1",
+      "key": "148692",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:08Z",
+      "table": "LFA1",
+      "key": "145227",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:09Z",
+      "table": "LFA1",
+      "key": "148539",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:10Z",
+      "table": "LFA1",
+      "key": "120624",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:11Z",
+      "table": "LFA1",
+      "key": "160030",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:12Z",
+      "table": "LFA1",
+      "key": "112401",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:13Z",
+      "table": "LFA1",
+      "key": "142115",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:14Z",
+      "table": "LFA1",
+      "key": "163906",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:15Z",
+      "table": "LFA1",
+      "key": "174585",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:16Z",
+      "table": "LFA1",
+      "key": "138623",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:17Z",
+      "table": "LFA1",
+      "key": "151657",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:18Z",
+      "table": "LFA1",
+      "key": "171600",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:19Z",
+      "table": "LFA1",
+      "key": "194954",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:20Z",
+      "table": "LFA1",
+      "key": "187507",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:21Z",
+      "table": "LFA1",
+      "key": "156070",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:22Z",
+      "table": "LFA1",
+      "key": "161529",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:23Z",
+      "table": "LFA1",
+      "key": "130082",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:24Z",
+      "table": "LFA1",
+      "key": "159712",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:25Z",
+      "table": "LFA1",
+      "key": "180033",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:26Z",
+      "table": "LFA1",
+      "key": "103827",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:27Z",
+      "table": "LFA1",
+      "key": "126700",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:28Z",
+      "table": "LFA1",
+      "key": "196299",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:29Z",
+      "table": "LFA1",
+      "key": "113013",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:30Z",
+      "table": "LFA1",
+      "key": "159575",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:31Z",
+      "table": "LFA1",
+      "key": "168255",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:32Z",
+      "table": "LFA1",
+      "key": "158991",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:33Z",
+      "table": "LFA1",
+      "key": "130485",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:34Z",
+      "table": "LFA1",
+      "key": "150850",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:35Z",
+      "table": "LFA1",
+      "key": "145693",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:36Z",
+      "table": "LFA1",
+      "key": "167993",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:37Z",
+      "table": "LFA1",
+      "key": "138197",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:38Z",
+      "table": "LFA1",
+      "key": "119610",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:39Z",
+      "table": "LFA1",
+      "key": "114531",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:40Z",
+      "table": "LFA1",
+      "key": "191281",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:41Z",
+      "table": "LFA1",
+      "key": "142641",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:42Z",
+      "table": "LFA1",
+      "key": "190040",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:43Z",
+      "table": "LFA1",
+      "key": "124647",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:44Z",
+      "table": "LFA1",
+      "key": "178830",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:45Z",
+      "table": "LFA1",
+      "key": "157358",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:46Z",
+      "table": "LFA1",
+      "key": "101446",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:47Z",
+      "table": "LFA1",
+      "key": "144548",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:48Z",
+      "table": "LFA1",
+      "key": "124257",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:49Z",
+      "table": "LFA1",
+      "key": "164231",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:50Z",
+      "table": "LFA1",
+      "key": "191885",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:51Z",
+      "table": "LFA1",
+      "key": "159225",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:52Z",
+      "table": "LFA1",
+      "key": "197904",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:53Z",
+      "table": "LFA1",
+      "key": "145372",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:54Z",
+      "table": "LFA1",
+      "key": "132646",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:55Z",
+      "table": "LFA1",
+      "key": "145173",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:56Z",
+      "table": "LFA1",
+      "key": "121956",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:57Z",
+      "table": "LFA1",
+      "key": "101894",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:58Z",
+      "table": "LFA1",
+      "key": "191923",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:41:59Z",
+      "table": "LFA1",
+      "key": "122718",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:00Z",
+      "table": "LFA1",
+      "key": "147281",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:01Z",
+      "table": "LFA1",
+      "key": "143690",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:02Z",
+      "table": "LFA1",
+      "key": "158657",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:03Z",
+      "table": "LFA1",
+      "key": "147579",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:04Z",
+      "table": "LFA1",
+      "key": "100213",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:05Z",
+      "table": "LFA1",
+      "key": "172941",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:06Z",
+      "table": "LFA1",
+      "key": "184997",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:07Z",
+      "table": "LFA1",
+      "key": "113095",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:08Z",
+      "table": "LFA1",
+      "key": "166762",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:09Z",
+      "table": "LFA1",
+      "key": "117478",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:10Z",
+      "table": "LFA1",
+      "key": "187367",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:11Z",
+      "table": "LFA1",
+      "key": "160580",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:12Z",
+      "table": "LFA1",
+      "key": "198603",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:13Z",
+      "table": "LFA1",
+      "key": "152463",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:14Z",
+      "table": "LFA1",
+      "key": "183317",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:15Z",
+      "table": "LFA1",
+      "key": "126417",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:16Z",
+      "table": "LFA1",
+      "key": "174209",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:17Z",
+      "table": "LFA1",
+      "key": "110599",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:18Z",
+      "table": "LFA1",
+      "key": "126174",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:19Z",
+      "table": "LFA1",
+      "key": "106134",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:20Z",
+      "table": "LFA1",
+      "key": "119916",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:21Z",
+      "table": "LFA1",
+      "key": "152843",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:22Z",
+      "table": "LFA1",
+      "key": "119764",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:23Z",
+      "table": "LFA1",
+      "key": "125357",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:24Z",
+      "table": "LFA1",
+      "key": "198811",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:25Z",
+      "table": "LFA1",
+      "key": "189687",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:26Z",
+      "table": "LFA1",
+      "key": "130440",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:27Z",
+      "table": "LFA1",
+      "key": "118445",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:28Z",
+      "table": "LFA1",
+      "key": "150004",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:29Z",
+      "table": "LFA1",
+      "key": "164575",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:30Z",
+      "table": "LFA1",
+      "key": "147389",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:31Z",
+      "table": "LFA1",
+      "key": "154168",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:32Z",
+      "table": "LFA1",
+      "key": "123628",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:33Z",
+      "table": "LFA1",
+      "key": "121569",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:34Z",
+      "table": "LFA1",
+      "key": "170786",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:35Z",
+      "table": "LFA1",
+      "key": "188850",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:36Z",
+      "table": "LFA1",
+      "key": "125713",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:37Z",
+      "table": "LFA1",
+      "key": "112929",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:38Z",
+      "table": "LFA1",
+      "key": "133204",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:39Z",
+      "table": "LFA1",
+      "key": "167799",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:40Z",
+      "table": "LFA1",
+      "key": "109136",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:41Z",
+      "table": "LFA1",
+      "key": "131534",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:42Z",
+      "table": "LFA1",
+      "key": "173137",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:43Z",
+      "table": "LFA1",
+      "key": "101239",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:44Z",
+      "table": "LFA1",
+      "key": "193813",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:45Z",
+      "table": "LFA1",
+      "key": "162437",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:46Z",
+      "table": "LFA1",
+      "key": "108472",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:47Z",
+      "table": "LFA1",
+      "key": "184392",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:48Z",
+      "table": "LFA1",
+      "key": "115185",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:49Z",
+      "table": "LFA1",
+      "key": "106457",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:50Z",
+      "table": "LFA1",
+      "key": "118367",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:51Z",
+      "table": "LFA1",
+      "key": "198125",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:52Z",
+      "table": "LFA1",
+      "key": "114173",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:53Z",
+      "table": "LFA1",
+      "key": "109423",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:54Z",
+      "table": "LFA1",
+      "key": "132148",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:55Z",
+      "table": "LFA1",
+      "key": "100281",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:56Z",
+      "table": "LFA1",
+      "key": "129107",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:57Z",
+      "table": "LFA1",
+      "key": "137075",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:58Z",
+      "table": "LFA1",
+      "key": "167118",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:42:59Z",
+      "table": "LFA1",
+      "key": "198735",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:00Z",
+      "table": "LFA1",
+      "key": "187408",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:01Z",
+      "table": "LFA1",
+      "key": "170698",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:02Z",
+      "table": "LFA1",
+      "key": "123683",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:03Z",
+      "table": "LFA1",
+      "key": "171504",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:04Z",
+      "table": "LFA1",
+      "key": "129480",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:05Z",
+      "table": "LFA1",
+      "key": "128050",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:06Z",
+      "table": "LFA1",
+      "key": "127896",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:07Z",
+      "table": "LFA1",
+      "key": "133559",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:08Z",
+      "table": "LFA1",
+      "key": "126554",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:09Z",
+      "table": "LFA1",
+      "key": "141567",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:10Z",
+      "table": "LFA1",
+      "key": "197879",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:11Z",
+      "table": "LFA1",
+      "key": "103658",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:12Z",
+      "table": "LFA1",
+      "key": "117169",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:13Z",
+      "table": "LFA1",
+      "key": "192011",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:14Z",
+      "table": "LFA1",
+      "key": "119687",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:15Z",
+      "table": "LFA1",
+      "key": "107653",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:16Z",
+      "table": "LFA1",
+      "key": "156286",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:17Z",
+      "table": "LFA1",
+      "key": "104962",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:18Z",
+      "table": "LFA1",
+      "key": "148381",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:19Z",
+      "table": "LFA1",
+      "key": "186836",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:20Z",
+      "table": "LFA1",
+      "key": "114006",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:21Z",
+      "table": "LFA1",
+      "key": "153068",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:22Z",
+      "table": "LFA1",
+      "key": "172974",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:23Z",
+      "table": "LFA1",
+      "key": "189864",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:24Z",
+      "table": "LFA1",
+      "key": "195407",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:25Z",
+      "table": "LFA1",
+      "key": "161977",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:26Z",
+      "table": "LFA1",
+      "key": "190613",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    },
+    {
+      "timestamp": "2026-04-09T05:43:27Z",
+      "table": "LFA1",
+      "key": "129305",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-09T05:38:34Z",
+  "end_time": "2026-04-09T07:23:34Z",
+  "reason_code": "Fix one vendor blocked status per CHG0070558",
+  "ticket_reference": "CHG0070558"
+}

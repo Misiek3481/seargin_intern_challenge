@@ -1,0 +1,72 @@
+{
+  "session_id": "FF-TRAIN-0033",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "ESZYMANSKA",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-08T21:34:49Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-08T21:36:56Z",
+      "tcode": "FB02",
+      "description": "Change Document"
+    },
+    {
+      "timestamp": "2026-05-08T21:40:53Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-08T21:41:15Z",
+      "tcode": "SE38",
+      "description": "ABAP Editor"
+    },
+    {
+      "timestamp": "2026-05-08T21:44:33Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-08T21:46:58Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-08T21:41:29Z",
+      "table": "BSEG",
+      "key": "1006085302213",
+      "field": "WRBTR",
+      "old_value": "50000.00",
+      "new_value": "5000.00"
+    }
+  ],
+  "system_log": [
+    {
+      "timestamp": "2026-05-08T21:38:59Z",
+      "message": "Debug session started by ESZYMANSKA",
+      "type": "SM21"
+    },
+    {
+      "timestamp": "2026-05-08T21:40:59Z",
+      "message": "Variable value changed in debug mode (/h replace): WRBTR 50000.00 -> 5000.00",
+      "type": "SM21"
+    },
+    {
+      "timestamp": "2026-05-08T21:41:19Z",
+      "message": "ABAP debugger /h command executed",
+      "type": "SM21"
+    }
+  ],
+  "os_command_log": [],
+  "start_time": "2026-05-08T21:28:59Z",
+  "end_time": "2026-05-08T22:00:59Z",
+  "reason_code": "Investigating posting issue per CHG0075631",
+  "ticket_reference": "CHG0075631"
+}

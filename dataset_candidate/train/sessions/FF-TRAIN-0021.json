@@ -1,0 +1,46 @@
+{
+  "session_id": "FF-TRAIN-0021",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "KFISCHER",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-24T07:13:29Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-04-24T07:15:17Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-04-24T07:19:29Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-04-24T07:19:36Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-24T07:13:40Z",
+      "table": "USR02",
+      "key": "KZIELINSKA",
+      "field": "UFLAG",
+      "old_value": "64",
+      "new_value": "0"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-24T07:10:40Z",
+  "end_time": "2026-04-24T07:36:40Z",
+  "reason_code": "Reset locked user account for KZIELINSKA after failed login attempts; verified identity with HR via REQ0054930; no role changes performed",
+  "ticket_reference": "REQ0054930"
+}

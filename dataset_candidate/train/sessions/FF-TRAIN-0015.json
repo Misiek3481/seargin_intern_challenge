@@ -1,0 +1,67 @@
+{
+  "session_id": "FF-TRAIN-0015",
+  "firefighter_id": "FF_MM_02",
+  "firefighter_user": "BMEYER",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-04T10:24:37Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-04T10:27:40Z",
+      "tcode": "BD87",
+      "description": "Status Monitor for ALE Messages"
+    },
+    {
+      "timestamp": "2026-04-04T10:33:58Z",
+      "tcode": "WE02",
+      "description": "Display IDoc"
+    },
+    {
+      "timestamp": "2026-04-04T10:35:18Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-04T10:37:34Z",
+      "tcode": "WE19",
+      "description": "Test Tool for IDoc Processing"
+    },
+    {
+      "timestamp": "2026-04-04T10:37:47Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-04T10:44:05Z",
+      "tcode": "ME23N",
+      "description": "Display Purchase Order"
+    },
+    {
+      "timestamp": "2026-04-04T10:46:33Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-04-04T10:47:26Z",
+      "tcode": "MIGO",
+      "description": "Goods Movement"
+    },
+    {
+      "timestamp": "2026-04-04T10:48:13Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-04T10:21:56Z",
+  "end_time": "2026-04-04T10:50:56Z",
+  "reason_code": "Investigated and corrected stuck IDoc 6824666573 blocking goods receipt for PO 4593745622; reprocessed via WE19 after BD87 status check; documented in CHG0076217",
+  "ticket_reference": "CHG0076217"
+}

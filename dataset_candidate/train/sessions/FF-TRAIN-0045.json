@@ -1,0 +1,57 @@
+{
+  "session_id": "FF-TRAIN-0045",
+  "firefighter_id": "FF_MM_01",
+  "firefighter_user": "MNOWAK",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-18T15:14:12Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-18T15:17:55Z",
+      "tcode": "BD87",
+      "description": "Status Monitor for ALE Messages"
+    },
+    {
+      "timestamp": "2026-05-18T15:20:05Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-18T15:20:54Z",
+      "tcode": "WE02",
+      "description": "Display IDoc"
+    },
+    {
+      "timestamp": "2026-05-18T15:24:23Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-18T15:27:23Z",
+      "tcode": "WE19",
+      "description": "Test Tool for IDoc Processing"
+    },
+    {
+      "timestamp": "2026-05-18T15:33:45Z",
+      "tcode": "ME23N",
+      "description": "Display Purchase Order"
+    },
+    {
+      "timestamp": "2026-05-18T15:35:58Z",
+      "tcode": "MIGO",
+      "description": "Goods Movement"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-18T15:12:46Z",
+  "end_time": "2026-05-18T15:32:46Z",
+  "reason_code": "Investigated and corrected stuck IDoc 9378619730 blocking goods receipt for PO 4511756583; reprocessed via WE19 after BD87 status check; documented in INC0058394",
+  "ticket_reference": "INC0058394"
+}

@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TRAIN-0050",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "AWEBER",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-01T12:56:13Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-01T12:58:46Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-01T13:02:54Z",
+      "tcode": "FBL3N",
+      "description": "G/L Account Line Items"
+    },
+    {
+      "timestamp": "2026-05-01T13:07:35Z",
+      "tcode": "MIRO",
+      "description": "Invoice Receipt"
+    },
+    {
+      "timestamp": "2026-05-01T13:12:30Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-01T13:14:01Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-01T12:55:03Z",
+  "end_time": "2026-05-01T13:25:03Z",
+  "reason_code": "FI investigation: posting issue on G/L account per PRB0050568",
+  "ticket_reference": "PRB0050568"
+}

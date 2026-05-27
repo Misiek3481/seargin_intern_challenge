@@ -1,0 +1,51 @@
+{
+  "session_id": "FF-TEST-0003",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "PWISNIEWSKI",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-11T14:53:01Z",
+      "tcode": "SE16N",
+      "description": "General Table Display (with edit)"
+    },
+    {
+      "timestamp": "2026-04-11T14:55:29Z",
+      "tcode": "SM30",
+      "description": "Table Maintenance"
+    },
+    {
+      "timestamp": "2026-04-11T14:58:40Z",
+      "tcode": "SE16N",
+      "description": "General Table Display (with edit)"
+    },
+    {
+      "timestamp": "2026-04-11T15:05:25Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-11T15:14:13Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-11T14:55:11Z",
+      "table": "T001",
+      "key": "1000",
+      "field": "WAERS",
+      "old_value": "EUR",
+      "new_value": "USD"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-11T14:51:51Z",
+  "end_time": "2026-04-11T15:17:51Z",
+  "reason_code": "Quick configuration check per INC0042100",
+  "ticket_reference": "INC0042100"
+}

@@ -1,0 +1,56 @@
+{
+  "session_id": "FF-TEST-0009",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "TLEWANDOWSKI",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-01T08:04:38Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-01T08:09:33Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-04-01T08:12:11Z",
+      "tcode": "PFCG",
+      "description": "Role Maintenance"
+    },
+    {
+      "timestamp": "2026-04-01T08:14:12Z",
+      "tcode": "SU10",
+      "description": "Mass User Maintenance"
+    },
+    {
+      "timestamp": "2026-04-01T08:17:33Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-01T08:19:29Z",
+      "tcode": "PFCG",
+      "description": "Role Maintenance"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-01T08:14:28Z",
+      "table": "AGR_USERS",
+      "key": "Z_FI_POWER_USER",
+      "field": "UNAME",
+      "old_value": "",
+      "new_value": "MNOWAK"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-01T08:04:28Z",
+  "end_time": "2026-04-01T08:32:28Z",
+  "reason_code": "Investigated and resolved failed automatic payment run F110 for Company Code 1000 on month-end close; identified blocked vendor 145922 as root cause; coordinated with AP team via INC0086749 before unblock; verified successful re-run after correction.",
+  "ticket_reference": "INC0086749"
+}

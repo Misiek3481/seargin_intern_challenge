@@ -1,0 +1,42 @@
+{
+  "session_id": "FF-TRAIN-0027",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "ESZYMANSKA",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-ECC",
+  "client": "MEGAMANU-PL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-17T20:20:33Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-17T20:23:06Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-17T20:26:21Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-17T20:29:29Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-17T20:30:10Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-17T20:17:31Z",
+  "end_time": "2026-05-17T20:44:31Z",
+  "reason_code": "Production issue",
+  "ticket_reference": "REQ0078650"
+}

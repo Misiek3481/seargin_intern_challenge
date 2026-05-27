@@ -1,0 +1,32 @@
+{
+  "session_id": "FF-TRAIN-0043",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "RKAMINSKI",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-11T12:10:29Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-05-11T12:12:58Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-05-11T12:20:01Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-11T12:09:14Z",
+  "end_time": "2026-05-11T12:23:14Z",
+  "reason_code": "TBD",
+  "ticket_reference": "CHG0095966"
+}

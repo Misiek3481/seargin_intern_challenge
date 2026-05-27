@@ -1,0 +1,72 @@
+{
+  "session_id": "FF-TRAIN-0003",
+  "firefighter_id": "FF_FI_02",
+  "firefighter_user": "KFISCHER",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-13T06:02:14Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-13T06:07:38Z",
+      "tcode": "FB02",
+      "description": "Change Document"
+    },
+    {
+      "timestamp": "2026-05-13T06:09:53Z",
+      "tcode": "SE38",
+      "description": "ABAP Editor"
+    },
+    {
+      "timestamp": "2026-05-13T06:14:44Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-05-13T06:27:32Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-13T06:29:58Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-13T06:11:03Z",
+      "table": "BSEG",
+      "key": "1008182766674",
+      "field": "WRBTR",
+      "old_value": "50000.00",
+      "new_value": "5000.00"
+    }
+  ],
+  "system_log": [
+    {
+      "timestamp": "2026-05-13T06:08:33Z",
+      "message": "Debug session started by KFISCHER",
+      "type": "SM21"
+    },
+    {
+      "timestamp": "2026-05-13T06:10:33Z",
+      "message": "Variable value changed in debug mode (/h replace): WRBTR 50000.00 -> 5000.00",
+      "type": "SM21"
+    },
+    {
+      "timestamp": "2026-05-13T06:10:53Z",
+      "message": "ABAP debugger /h command executed",
+      "type": "SM21"
+    }
+  ],
+  "os_command_log": [],
+  "start_time": "2026-05-13T05:58:33Z",
+  "end_time": "2026-05-13T06:54:33Z",
+  "reason_code": "Investigating posting issue per CHG0044434",
+  "ticket_reference": "CHG0044434"
+}

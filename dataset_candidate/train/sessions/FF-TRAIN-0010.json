@@ -1,0 +1,81 @@
+{
+  "session_id": "FF-TRAIN-0010",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "TLEWANDOWSKI",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-24T02:01:33Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-24T02:07:05Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-24T02:07:41Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-24T02:10:42Z",
+      "tcode": "XK03",
+      "description": "Display Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-24T02:14:32Z",
+      "tcode": "XK05",
+      "description": "Block Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-24T02:22:27Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-24T02:23:50Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-24T02:26:40Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-24T02:29:12Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-24T02:40:31Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-24T03:00:06Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-24T02:14:09Z",
+      "table": "LFA1",
+      "key": "155715",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-24T01:54:09Z",
+  "end_time": "2026-05-24T03:00:09Z",
+  "reason_code": "Resolved failed payment run F110 run ID 20260524-006 for Company Code 3000; root cause: blocked vendor 155715; unblocked after AP team confirmation via CHG0044823",
+  "ticket_reference": "CHG0044823"
+}

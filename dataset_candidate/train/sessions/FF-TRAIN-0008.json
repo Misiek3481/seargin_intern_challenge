@@ -1,0 +1,57 @@
+{
+  "session_id": "FF-TRAIN-0008",
+  "firefighter_id": "FF_MM_02",
+  "firefighter_user": "SSCHMIDT",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-11T15:11:28Z",
+      "tcode": "BD87",
+      "description": "Status Monitor for ALE Messages"
+    },
+    {
+      "timestamp": "2026-05-11T15:13:36Z",
+      "tcode": "WE02",
+      "description": "Display IDoc"
+    },
+    {
+      "timestamp": "2026-05-11T15:18:53Z",
+      "tcode": "WE19",
+      "description": "Test Tool for IDoc Processing"
+    },
+    {
+      "timestamp": "2026-05-11T15:21:50Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-11T15:22:48Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-11T15:22:58Z",
+      "tcode": "ME23N",
+      "description": "Display Purchase Order"
+    },
+    {
+      "timestamp": "2026-05-11T15:27:09Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-05-11T15:28:58Z",
+      "tcode": "MIGO",
+      "description": "Goods Movement"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-11T15:07:40Z",
+  "end_time": "2026-05-11T15:27:40Z",
+  "reason_code": "Investigated and corrected stuck IDoc 9978382423 blocking goods receipt for PO 4512383633; reprocessed via WE19 after BD87 status check; documented in INC0088021",
+  "ticket_reference": "INC0088021"
+}

@@ -1,0 +1,42 @@
+{
+  "session_id": "FF-TRAIN-0049",
+  "firefighter_id": "FF_BASIS_01",
+  "firefighter_user": "BMEYER",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-13T20:27:45Z",
+      "tcode": "SM37",
+      "description": "Job Overview"
+    },
+    {
+      "timestamp": "2026-05-13T20:28:55Z",
+      "tcode": "SM50",
+      "description": "Process Overview"
+    },
+    {
+      "timestamp": "2026-05-13T20:32:02Z",
+      "tcode": "ST22",
+      "description": "Runtime Errors"
+    },
+    {
+      "timestamp": "2026-05-13T20:33:32Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-13T20:40:00Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-13T20:25:48Z",
+  "end_time": "2026-05-13T20:47:48Z",
+  "reason_code": "Production issue",
+  "ticket_reference": ""
+}

@@ -1,0 +1,32 @@
+{
+  "session_id": "FF-TRAIN-0031",
+  "firefighter_id": "FF_BASIS_03",
+  "firefighter_user": "KFISCHER",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-11T11:19:41Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-05-11T11:21:28Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-05-11T11:23:28Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-11T11:18:34Z",
+  "end_time": "2026-05-11T11:25:34Z",
+  "reason_code": "fix",
+  "ticket_reference": "CHG0058732"
+}

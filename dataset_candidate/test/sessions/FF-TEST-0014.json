@@ -1,0 +1,32 @@
+{
+  "session_id": "FF-TEST-0014",
+  "firefighter_id": "FF_BASIS_01",
+  "firefighter_user": "MWOJCIK",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-29T13:04:32Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-29T13:05:29Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-04-29T13:06:35Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-29T13:03:55Z",
+  "end_time": "2026-04-29T13:10:55Z",
+  "reason_code": "see ticket",
+  "ticket_reference": "CHG0042758"
+}

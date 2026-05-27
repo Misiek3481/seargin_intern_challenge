@@ -1,0 +1,74 @@
+{
+  "session_id": "FF-TRAIN-0018",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "HMUELLER",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-07T12:06:29Z",
+      "tcode": "XK02",
+      "description": "Change Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-07T12:16:16Z",
+      "tcode": "FK02",
+      "description": "Change Vendor (Accounting)"
+    },
+    {
+      "timestamp": "2026-05-07T12:16:38Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-07T12:21:44Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-07T12:27:29Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-07T12:30:33Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-07T12:31:06Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-07T12:43:11Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-07T12:07:46Z",
+      "table": "LFBK",
+      "key": "129581",
+      "field": "BANKN",
+      "old_value": "1234567890",
+      "new_value": "6012352722"
+    },
+    {
+      "timestamp": "2026-05-07T12:08:06Z",
+      "table": "LFBK",
+      "key": "129581",
+      "field": "IBAN",
+      "old_value": "DE89370400440532013000",
+      "new_value": "DE5312345678906012352722"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-07T12:02:46Z",
+  "end_time": "2026-05-07T12:51:46Z",
+  "reason_code": "Updated vendor bank details and triggered payment per INC0066754",
+  "ticket_reference": "INC0066754"
+}

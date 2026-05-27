@@ -1,0 +1,51 @@
+{
+  "session_id": "FF-TEST-0004",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "AKAMINSKA",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-01T12:29:55Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-04-01T12:33:32Z",
+      "tcode": "SU01",
+      "description": "User Maintenance"
+    },
+    {
+      "timestamp": "2026-04-01T12:34:08Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-04-01T12:39:45Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-01T12:52:03Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-01T12:30:06Z",
+      "table": "USR02",
+      "key": "HMUELLER",
+      "field": "UFLAG",
+      "old_value": "64",
+      "new_value": "0"
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-01T12:27:06Z",
+  "end_time": "2026-04-01T12:53:06Z",
+  "reason_code": "Reset locked user account for HMUELLER after failed login attempts; verified identity with HR via CHG0068018; no role changes performed",
+  "ticket_reference": "CHG0068018"
+}

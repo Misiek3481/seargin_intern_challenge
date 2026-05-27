@@ -1,0 +1,72 @@
+{
+  "session_id": "FF-TRAIN-0024",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "BMEYER",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-19T23:25:05Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-19T23:27:56Z",
+      "tcode": "FB02",
+      "description": "Change Document"
+    },
+    {
+      "timestamp": "2026-04-19T23:31:06Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-19T23:32:14Z",
+      "tcode": "SE38",
+      "description": "ABAP Editor"
+    },
+    {
+      "timestamp": "2026-04-19T23:35:22Z",
+      "tcode": "FB03",
+      "description": "Display Document"
+    },
+    {
+      "timestamp": "2026-04-19T23:50:19Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-19T23:32:49Z",
+      "table": "BSEG",
+      "key": "1009604825642",
+      "field": "WRBTR",
+      "old_value": "50000.00",
+      "new_value": "5000.00"
+    }
+  ],
+  "system_log": [
+    {
+      "timestamp": "2026-04-19T23:30:19Z",
+      "message": "Debug session started by BMEYER",
+      "type": "SM21"
+    },
+    {
+      "timestamp": "2026-04-19T23:32:19Z",
+      "message": "Variable value changed in debug mode (/h replace): WRBTR 50000.00 -> 5000.00",
+      "type": "SM21"
+    },
+    {
+      "timestamp": "2026-04-19T23:32:39Z",
+      "message": "ABAP debugger /h command executed",
+      "type": "SM21"
+    }
+  ],
+  "os_command_log": [],
+  "start_time": "2026-04-19T23:20:19Z",
+  "end_time": "2026-04-19T23:51:19Z",
+  "reason_code": "Investigating posting issue per CHG0043469",
+  "ticket_reference": "CHG0043469"
+}

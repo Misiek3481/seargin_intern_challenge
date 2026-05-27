@@ -1,0 +1,71 @@
+{
+  "session_id": "FF-TEST-0023",
+  "firefighter_id": "FF_FI_01",
+  "firefighter_user": "JKOWALSKI",
+  "controller": "MCONTROL",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-22T04:06:26Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-22T04:13:33Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-22T04:17:24Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-22T04:19:57Z",
+      "tcode": "XK03",
+      "description": "Display Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-22T04:20:52Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-22T04:21:21Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    },
+    {
+      "timestamp": "2026-05-22T04:27:19Z",
+      "tcode": "XK05",
+      "description": "Block Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-05-22T04:31:40Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-22T04:38:17Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-05-22T04:21:46Z",
+      "table": "LFA1",
+      "key": "113977",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-22T04:01:46Z",
+  "end_time": "2026-05-22T04:41:46Z",
+  "reason_code": "Resolved failed payment run F110 run ID 20260522-002 for Company Code 2000; root cause: blocked vendor 113977; unblocked after AP team confirmation via PRB0087082",
+  "ticket_reference": "PRB0087082"
+}

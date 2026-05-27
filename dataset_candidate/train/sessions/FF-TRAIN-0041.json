@@ -1,0 +1,42 @@
+{
+  "session_id": "FF-TRAIN-0041",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "HMUELLER",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-24T18:41:41Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-04-24T18:46:09Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-04-24T18:49:09Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-04-24T18:49:45Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-04-24T19:01:36Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-24T18:38:01Z",
+  "end_time": "2026-04-24T19:02:01Z",
+  "reason_code": "Issue resolution",
+  "ticket_reference": "REQ0062694"
+}

@@ -1,0 +1,42 @@
+{
+  "session_id": "FF-TEST-0020",
+  "firefighter_id": "FF_FI_03",
+  "firefighter_user": "KFISCHER",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "EUROFIN-AT",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-08T18:21:24Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-08T18:27:39Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-05-08T18:33:38Z",
+      "tcode": "F110",
+      "description": "Automatic Payment Run"
+    },
+    {
+      "timestamp": "2026-05-08T18:46:47Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-08T18:56:24Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-08T18:18:08Z",
+  "end_time": "2026-05-08T18:57:08Z",
+  "reason_code": "System error fix",
+  "ticket_reference": "INC0086735"
+}

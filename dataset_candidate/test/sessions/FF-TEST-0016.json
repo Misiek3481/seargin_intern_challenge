@@ -1,0 +1,47 @@
+{
+  "session_id": "FF-TEST-0016",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "PWISNIEWSKI",
+  "controller": "KAUDIT",
+  "system": "PRD-S4",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-20T08:15:28Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-04-20T08:16:43Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    },
+    {
+      "timestamp": "2026-04-20T08:19:20Z",
+      "tcode": "SM50",
+      "description": "Process Overview"
+    },
+    {
+      "timestamp": "2026-04-20T08:20:34Z",
+      "tcode": "SM37",
+      "description": "Job Overview"
+    },
+    {
+      "timestamp": "2026-04-20T08:22:17Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-04-20T08:22:18Z",
+      "tcode": "SM12",
+      "description": "Lock Entries"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-20T08:14:07Z",
+  "end_time": "2026-04-20T08:23:07Z",
+  "reason_code": "Investigated SM12 lock entries blocking month-end close per INC0073046; identified orphaned lock from killed batch job, no manual unlock needed; documented findings.",
+  "ticket_reference": "INC0073046"
+}

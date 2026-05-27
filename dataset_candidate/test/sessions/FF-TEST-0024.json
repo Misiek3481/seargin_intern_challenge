@@ -1,0 +1,49 @@
+{
+  "session_id": "FF-TEST-0024",
+  "firefighter_id": "FF_BASIS_02",
+  "firefighter_user": "RKAMINSKI",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "NORDPHARMA-SE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-20T02:29:49Z",
+      "tcode": "SM50",
+      "description": "Process Overview"
+    },
+    {
+      "timestamp": "2026-05-20T02:30:15Z",
+      "tcode": "SE80",
+      "description": "Object Navigator"
+    },
+    {
+      "timestamp": "2026-05-20T02:31:28Z",
+      "tcode": "SM51",
+      "description": "Server Overview"
+    },
+    {
+      "timestamp": "2026-05-20T02:32:55Z",
+      "tcode": "SM50",
+      "description": "Process Overview"
+    },
+    {
+      "timestamp": "2026-05-20T02:35:44Z",
+      "tcode": "AL08",
+      "description": "User List"
+    },
+    {
+      "timestamp": "2026-05-20T02:39:37Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-20T02:26:44Z",
+  "end_time": "2026-05-20T02:44:44Z",
+  "reason_code": "On-call detected production system unresponsive at 02:14 via monitoring alert; opened PRB0063100 self-reported; restarted hung work process per runbook BAS-RB-014; verified system recovery; will request peer review per on-call procedure.",
+  "ticket_reference": "PRB0063100",
+  "ticket_requester": "RKAMINSKI",
+  "alert_source": "MONITORING_AUTO"
+}

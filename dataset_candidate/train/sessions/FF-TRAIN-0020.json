@@ -1,0 +1,56 @@
+{
+  "session_id": "FF-TRAIN-0020",
+  "firefighter_id": "FF_BASIS_03",
+  "firefighter_user": "HMUELLER",
+  "controller": "ICOMPLIANCE",
+  "system": "PRD-S4",
+  "client": "LOGIPRO-NL",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-27T22:53:22Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-27T22:55:09Z",
+      "tcode": "FB02",
+      "description": "Change Document"
+    },
+    {
+      "timestamp": "2026-04-27T22:59:38Z",
+      "tcode": "XK02",
+      "description": "Change Vendor (Centrally)"
+    },
+    {
+      "timestamp": "2026-04-27T23:03:23Z",
+      "tcode": "F-53",
+      "description": "Post Outgoing Payments"
+    },
+    {
+      "timestamp": "2026-04-27T23:09:48Z",
+      "tcode": "FBL1N",
+      "description": "Vendor Line Item Display"
+    },
+    {
+      "timestamp": "2026-04-27T23:22:47Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    }
+  ],
+  "change_log": [
+    {
+      "timestamp": "2026-04-27T22:58:33Z",
+      "table": "LFA1",
+      "key": "109196",
+      "field": "SPERR",
+      "old_value": "X",
+      "new_value": ""
+    }
+  ],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-27T22:48:33Z",
+  "end_time": "2026-04-27T23:42:33Z",
+  "reason_code": "Reset user lock for HR consultant",
+  "ticket_reference": "REQ0076130"
+}

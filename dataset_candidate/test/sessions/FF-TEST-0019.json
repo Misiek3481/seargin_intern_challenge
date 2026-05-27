@@ -1,0 +1,57 @@
+{
+  "session_id": "FF-TEST-0019",
+  "firefighter_id": "FF_MM_02",
+  "firefighter_user": "AKAMINSKA",
+  "controller": "RGRC",
+  "system": "PRD-S4",
+  "client": "BAYTECH-CH",
+  "transaction_log": [
+    {
+      "timestamp": "2026-05-18T10:45:23Z",
+      "tcode": "BD87",
+      "description": "Status Monitor for ALE Messages"
+    },
+    {
+      "timestamp": "2026-05-18T10:49:38Z",
+      "tcode": "WE02",
+      "description": "Display IDoc"
+    },
+    {
+      "timestamp": "2026-05-18T10:52:29Z",
+      "tcode": "WE19",
+      "description": "Test Tool for IDoc Processing"
+    },
+    {
+      "timestamp": "2026-05-18T10:56:48Z",
+      "tcode": "ME23N",
+      "description": "Display Purchase Order"
+    },
+    {
+      "timestamp": "2026-05-18T10:59:47Z",
+      "tcode": "MIGO",
+      "description": "Goods Movement"
+    },
+    {
+      "timestamp": "2026-05-18T11:01:43Z",
+      "tcode": "/NEX",
+      "description": "Logoff"
+    },
+    {
+      "timestamp": "2026-05-18T11:13:22Z",
+      "tcode": "SESSION_MANAGER",
+      "description": "Session Manager"
+    },
+    {
+      "timestamp": "2026-05-18T11:17:11Z",
+      "tcode": "SU53",
+      "description": "Display Authorization Check"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-05-18T10:40:36Z",
+  "end_time": "2026-05-18T11:18:36Z",
+  "reason_code": "Investigated and corrected stuck IDoc 1172635807 blocking goods receipt for PO 4530777798; reprocessed via WE19 after BD87 status check; documented in INC0051383",
+  "ticket_reference": "INC0051383"
+}

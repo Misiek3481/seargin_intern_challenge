@@ -1,0 +1,42 @@
+{
+  "session_id": "FF-TRAIN-0002",
+  "firefighter_id": "FF_BASIS_01",
+  "firefighter_user": "JKOWALSKI",
+  "controller": "KAUDIT",
+  "system": "PRD-ECC",
+  "client": "ACME-DE",
+  "transaction_log": [
+    {
+      "timestamp": "2026-04-15T20:58:19Z",
+      "tcode": "SM37",
+      "description": "Job Overview"
+    },
+    {
+      "timestamp": "2026-04-15T20:59:49Z",
+      "tcode": "SM50",
+      "description": "Process Overview"
+    },
+    {
+      "timestamp": "2026-04-15T21:00:23Z",
+      "tcode": "SU3",
+      "description": "Maintain Own User Data"
+    },
+    {
+      "timestamp": "2026-04-15T21:02:54Z",
+      "tcode": "ST22",
+      "description": "Runtime Errors"
+    },
+    {
+      "timestamp": "2026-04-15T21:18:42Z",
+      "tcode": "SMEN",
+      "description": "Session Manager"
+    }
+  ],
+  "change_log": [],
+  "system_log": [],
+  "os_command_log": [],
+  "start_time": "2026-04-15T20:56:46Z",
+  "end_time": "2026-04-15T21:31:46Z",
+  "reason_code": "Production issue",
+  "ticket_reference": ""
+}
