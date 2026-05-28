@@ -19,6 +19,21 @@ class Finding:
 
 
 @dataclass(frozen=True)
+class SuggestedCorrection:
+    message_to_firefighter: str
+    suggested_reason_rewrite: str | None = None
+
+
+@dataclass(frozen=True)
+class ReviewResult:
+    session_id: str
+    verdict: str
+    confidence: float
+    findings: list[Finding]
+    suggested_correction: SuggestedCorrection | None = None
+
+
+@dataclass(frozen=True)
 class Session:
     session_id: str
     firefighter_id: str
