@@ -3,6 +3,22 @@ from __future__ import annotations
 from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
 
+# TODO: Implement remaining baseline rules from the challenge:
+# - R-002: Reason mentions one system/module, but transactions touch a different one.
+# - R-004: Direct table modification without documented data-fix/change approval.
+# - R-006: Transaction or change count exceeds a reasonable threshold for the stated reason.
+# - R-009: Session duration exceeds the auto-extend limit without re-justification.
+# - R-010: Known SoD-conflict transaction pairs in one session.
+#
+# TODO: Consider additional rules after reviewing train/test patterns:
+# - R-011: Missing ticket reference for a session that made production changes.
+# - R-012: Sensitive table changes, e.g. vendor bank, company code, user master, or role tables.
+# - R-013: Display-only reason but write/change transactions or change_log entries are present.
+# - R-014: Logs outside the declared firefighter time window.
+# - R-015: Repeated failed authorization checks followed by sensitive changes.
+# - R-016: Suspicious transaction sequence, e.g. table inspection immediately followed by direct edit.
+
+
 class Rule:
     rule_id: str
     severity: str
