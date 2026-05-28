@@ -10,6 +10,15 @@ class InvalidSessionError(ValueError):
 
 
 @dataclass(frozen=True)
+class Finding:
+    rule_id: str
+    severity: str
+    location: str
+    description: str
+    evidence: str
+
+
+@dataclass(frozen=True)
 class Session:
     session_id: str
     firefighter_id: str
@@ -28,6 +37,7 @@ class Session:
     ticket_requester: str | None = None
     alert_source: str | None = None
     raw: dict[str, Any] = field(default_factory=dict)
+
 
 @dataclass(frozen=True)
 class SessionFeatures:
