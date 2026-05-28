@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAP Firefighter Reviewer</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="top-bar">
+        <div>
+          <h1>SAP Firefighter Reviewer</h1>
+          <p>Controller review workspace</p>
+        </div>
+        <div id="statusBadge" class="status-badge">No session loaded</div>
+      </header>
+
+      <section class="upload-panel">
+        <label for="sessionFile">Session JSON</label>
+        <div class="upload-row">
+          <input id="sessionFile" type="file" accept="application/json,.json">
+          <button id="reviewButton" type="button">Review</button>
+        </div>
+        <p id="errorMessage" class="error-message" role="alert"></p>
+      </section>
+
+      <section id="resultPanel" class="result-grid hidden">
+        <div class="summary-panel">
+          <div class="summary-header">
+            <div>
+              <span class="eyebrow">Verdict</span>
+              <h2 id="verdictValue">-</h2>
+            </div>
+            <div>
+              <span class="eyebrow">Confidence</span>
+              <strong id="confidenceValue">-</strong>
+            </div>
+          </div>
+          <dl class="session-meta">
+            <div>
+              <dt>Session</dt>
+              <dd id="sessionIdValue">-</dd>
+            </div>
+            <div>
+              <dt>Reason</dt>
+              <dd id="reasonValue">-</dd>
+            </div>
+            <div>
+              <dt>Ticket</dt>
+              <dd id="ticketValue">-</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="decision-panel">
+          <label for="decisionComment">Controller comment</label>
+          <textarea id="decisionComment" rows="4" placeholder="Optional comment"></textarea>
+          <div class="decision-actions">
+            <button type="button" data-decision="PASS">PASS</button>
+            <button type="button" data-decision="REJECT">REJECT</button>
+            <button type="button" data-decision="SEND_BACK">SEND-BACK</button>
+          </div>
+          <p id="decisionStatus" class="decision-status"></p>
+        </div>
+
+        <section class="findings-panel">
+          <div class="section-heading">
+            <h2>Findings</h2>
+            <span id="findingsCount">0</span>
+          </div>
+          <div id="findingsList" class="findings-list"></div>
+        </section>
+
+        <section class="correction-panel">
+          <div class="section-heading">
+            <h2>Suggested Correction</h2>
+          </div>
+          <div id="correctionContent" class="correction-content"></div>
+        </section>
+
+        <section class="logs-panel">
+          <div class="section-heading">
+            <h2>Session Logs</h2>
+          </div>
+          <div id="logsContent" class="logs-content"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

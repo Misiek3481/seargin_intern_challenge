@@ -23,6 +23,7 @@ env/
 !.env.example
 
 # Local outputs
+decisions.jsonl
 predictions.jsonl
 outputs/
 results/
