@@ -3,10 +3,9 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any
 
 from sap_ff_reviewer.engine import ReviewEngine
-from sap_ff_reviewer.models import Finding, ReviewResult, SuggestedCorrection
+from sap_ff_reviewer.serialization import review_result_to_dict
 
 
 def main() -> None:
@@ -43,37 +42,6 @@ def review_dir(sessions_dir: Path, output: Path) -> None:
             file.write(json.dumps(review_result_to_dict(result)) + "\n")
 
     print(f"Wrote {len(session_files)} predictions to {output}")
-
-
-def review_result_to_dict(result: ReviewResult) -> dict[str, Any]:
-    return {
-        "session_id": result.session_id,
-        "verdict": result.verdict,
-        "confidence": result.confidence,
-        "findings": [finding_to_dict(finding) for finding in result.findings],
-        "suggested_correction": correction_to_dict(result.suggested_correction),
-    }
-
-
-def finding_to_dict(finding: Finding) -> dict[str, str]:
-    return {
-        "rule_id": finding.rule_id,
-        "severity": finding.severity,
-        "location": finding.location,
-        "description": finding.description,
-        "evidence": finding.evidence,
-    }
-
-
-def correction_to_dict(correction: SuggestedCorrection | None) -> dict[str, str | None] | None:
-    if correction is None:
-        return None
-
-    return {
-        "message_to_firefighter": correction.message_to_firefighter,
-        "suggested_reason_rewrite": correction.suggested_reason_rewrite,
-    }
-
 
 if __name__ == "__main__":
     main()
