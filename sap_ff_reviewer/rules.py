@@ -70,7 +70,7 @@ class R003DebugActivityRule(Rule):
     def _format_system_log_entry(self, entry: dict) -> str:
         timestamp = entry.get("timestamp", "<missing timestamp>")
         message = entry.get("message", "<missing message>")
-        log_type = entry.get("type", "system_log")
+        log_type = entry.get("type", "<missing system_log type>")
         return f"{timestamp} - {message} ({log_type})"
 
 
