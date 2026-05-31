@@ -2,6 +2,7 @@ from sap_ff_reviewer.features import FeatureExtractor
 from sap_ff_reviewer.parser import SessionParser
 from sap_ff_reviewer.rules import (
     R001WeakReasonRule,
+    R002ReasonActionMismatchRule,
     R003DebugActivityRule,
     R004DirectTableModificationRule,
     R005OsCommandRule,
@@ -57,6 +58,64 @@ def test_r001_does_not_flag_specific_reason():
     features = extract_features(session)
 
     findings = R001WeakReasonRule().check(session, features)
+
+    assert findings == []
+
+
+def test_r002_flags_read_only_reason_with_production_change():
+    session = make_session({
+        "reason_code": "Quick configuration check per PRB1234567",
+        "transaction_log": [{"tcode": "SE16N"}],
+        "change_log": [{"table": "T001", "field": "WAERS", "old_value": "EUR", "new_value": "USD"}],
+    })
+    features = extract_features(session)
+
+    findings = R002ReasonActionMismatchRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-002"
+    assert findings[0].severity == "high"
+    assert "read-only" in findings[0].description
+
+
+def test_r002_flags_user_reset_reason_with_finance_actions():
+    session = make_session({"reason_code": "Reset user lock for HR consultant", "transaction_log": [{"tcode": "SU3"}, {"tcode": "XK02"}, {"tcode": "F-53"}]})
+    features = extract_features(session)
+
+    findings = R002ReasonActionMismatchRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-002"
+    assert "user reset" in findings[0].description
+
+
+def test_r002_flags_fi_reason_with_mm_actions():
+    session = make_session({"reason_code": "FI investigation: posting issue on G/L account per INC1234567", "transaction_log": [{"tcode": "FB03"}, {"tcode": "MIRO"}]})
+    features = extract_features(session)
+
+    findings = R002ReasonActionMismatchRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-002"
+    assert "MM" in findings[0].description
+
+
+def test_r002_flags_reason_admitting_vendor_maintenance_and_payment_execution():
+    session = make_session({"reason_code": "Updated vendor bank details and triggered payment per CHG1234567", "transaction_log": [{"tcode": "XK02"}, {"tcode": "F110"}]})
+    features = extract_features(session)
+
+    findings = R002ReasonActionMismatchRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-002"
+    assert "vendor maintenance and payment execution" in findings[0].description
+
+
+def test_r002_does_not_flag_matching_payment_investigation():
+    session = make_session({"reason_code": "Investigated failed payment run per INC1234567", "transaction_log": [{"tcode": "F110"}, {"tcode": "FBL1N"}]})
+    features = extract_features(session)
+
+    findings = R002ReasonActionMismatchRule().check(session, features)
 
     assert findings == []
 

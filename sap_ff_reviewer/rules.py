@@ -4,7 +4,6 @@ from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
 
 # TODO: Implement remaining baseline rules from the challenge:
-# - R-002: Reason mentions one system/module, but transactions touch a different one.
 #
 # TODO: Consider additional rules after reviewing train/test patterns:
 # - R-011: Missing ticket reference for a session that made production changes.
@@ -52,6 +51,61 @@ class R001WeakReasonRule(Rule):
             ]
 
         return []
+
+
+class R002ReasonActionMismatchRule(Rule):
+    """
+    Detect clear mismatches between the stated reason and performed actions.
+
+    This is a deterministic heuristic, not a full semantic interpretation. It
+    covers mismatch patterns visible in the historical data: read-only/check
+    reasons with production changes, user-reset reasons with finance/vendor
+    actions, FI posting reasons with MM invoice/goods movement actions, and
+    reason codes that admit vendor maintenance plus payment execution.
+    """
+
+    rule_id = "R-002"
+    severity = "high"
+    READ_ONLY_REASON_TERMS = ("check", "investigation", "investigate", "display", "review")
+    USER_RESET_REASON_TERMS = ("reset user", "user lock", "locked user", "hr consultant")
+    FI_POSTING_REASON_TERMS = ("fi", "posting", "g/l", "gl account", "general ledger")
+    VENDOR_REASON_TERMS = ("vendor", "bank details", "bank data", "iban")
+    PAYMENT_REASON_TERMS = ("payment", "payment run", "f110")
+    FINANCE_VENDOR_PAYMENT_TCODES = {"FB02", "F110", "F-53", "FBL1N", "XK02", "FK02", "XK05"}
+    MM_TCODES = {"MIRO", "MIGO", "ME23N"}
+    VENDOR_MAINTENANCE_TCODES = {"XK02", "FK02", "XK05"}
+    PAYMENT_TCODES = {"F110", "F-53"}
+
+    def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        reason = features.reason.lower()
+
+        if self._contains_any(reason, self.READ_ONLY_REASON_TERMS) and features.change_count > 0:
+            return [self._build_finding("Reason claims read-only investigation/check activity, but the session changed production data.", session.reason_code)]
+
+        if self._contains_any(reason, self.USER_RESET_REASON_TERMS) and features.tcodes & self.FINANCE_VENDOR_PAYMENT_TCODES:
+            evidence = f"reason={session.reason_code}; tcodes={', '.join(sorted(features.tcodes & self.FINANCE_VENDOR_PAYMENT_TCODES))}"
+            return [self._build_finding("Reason indicates user reset activity, but transactions include finance/vendor/payment actions.", evidence)]
+
+        if self._contains_any(reason, self.FI_POSTING_REASON_TERMS) and features.tcodes & self.MM_TCODES:
+            evidence = f"reason={session.reason_code}; tcodes={', '.join(sorted(features.tcodes & self.MM_TCODES))}"
+            return [self._build_finding("Reason indicates FI posting investigation, but transactions include MM purchasing/invoice actions.", evidence)]
+
+        mentions_vendor_and_payment = self._contains_any(reason, self.VENDOR_REASON_TERMS) and self._contains_any(reason, self.PAYMENT_REASON_TERMS)
+        has_vendor_and_payment = bool(features.tcodes & self.VENDOR_MAINTENANCE_TCODES) and bool(features.tcodes & self.PAYMENT_TCODES)
+        if mentions_vendor_and_payment and has_vendor_and_payment:
+            return [self._build_finding("Reason admits both vendor maintenance and payment execution in one firefighter session.", session.reason_code)]
+
+        return []
+
+    def _contains_any(self, text: str, terms: tuple[str, ...]) -> bool:
+        return any(term in text for term in terms)
+
+    def _build_finding(self, description: str, evidence: str) -> Finding:
+        return self.finding(
+            location="reason_code",
+            description=description,
+            evidence=evidence,
+        )
 
 
 class R003DebugActivityRule(Rule):
@@ -289,6 +343,7 @@ class R010SodConflictRule(Rule):
 def default_rules() -> list[Rule]:
     return [
         R001WeakReasonRule(),
+        R002ReasonActionMismatchRule(),
         R003DebugActivityRule(),
         R004DirectTableModificationRule(),
         R005OsCommandRule(),
