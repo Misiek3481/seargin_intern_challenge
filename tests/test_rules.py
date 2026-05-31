@@ -8,6 +8,7 @@ from sap_ff_reviewer.rules import (
     R006ExcessiveChangeVolumeRule,
     R007AfterHoursWithoutEmergencyRule,
     R008SelfApprovalRule,
+    R009LongSessionWithoutRejustificationRule,
     R010SodConflictRule,
     RuleEngine,
 )
@@ -182,6 +183,32 @@ def test_r008_flags_firefighter_as_ticket_requester():
     assert findings[0].rule_id == "R-008"
     assert findings[0].severity == "high"
     assert findings[0].location == "ticket_requester"
+
+
+def test_r009_flags_long_session_without_rejustification():
+    session = make_session({"start_time": "2026-05-12T10:00:00Z", "end_time": "2026-05-12T12:30:00Z"})
+    features = extract_features(session)
+
+    findings = R009LongSessionWithoutRejustificationRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-009"
+    assert findings[0].severity == "medium"
+    assert findings[0].location == "start_time/end_time"
+    assert "duration_minutes=150" in findings[0].evidence
+
+
+def test_r009_does_not_flag_long_session_with_rejustification():
+    session = make_session({
+        "start_time": "2026-05-12T10:00:00Z",
+        "end_time": "2026-05-12T12:30:00Z",
+        "reason_code": "Resolved payment failure; controller approved extension for additional reconciliation.",
+    })
+    features = extract_features(session)
+
+    findings = R009LongSessionWithoutRejustificationRule().check(session, features)
+
+    assert findings == []
 
 
 def test_r010_flags_vendor_maintenance_and_payment_execution():

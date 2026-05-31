@@ -5,7 +5,6 @@ from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
 # TODO: Implement remaining baseline rules from the challenge:
 # - R-002: Reason mentions one system/module, but transactions touch a different one.
-# - R-009: Session duration exceeds the auto-extend limit without re-justification.
 #
 # TODO: Consider additional rules after reviewing train/test patterns:
 # - R-011: Missing ticket reference for a session that made production changes.
@@ -224,6 +223,36 @@ class R008SelfApprovalRule(Rule):
         ]
 
 
+class R009LongSessionWithoutRejustificationRule(Rule):
+    rule_id = "R-009"
+    severity = "medium"
+    AUTO_EXTEND_LIMIT_MINUTES = 120
+    REJUSTIFICATION_TERMS = (
+        "extended",
+        "extension",
+        "re-justified",
+        "rejustified",
+        "additional approval",
+        "controller approved extension",
+    )
+
+    def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        if features.duration_minutes <= self.AUTO_EXTEND_LIMIT_MINUTES or self._reason_documents_extension(features.reason):
+            return []
+
+        return [
+            self.finding(
+                location="start_time/end_time",
+                description="Session duration exceeds the auto-extend limit without documented re-justification.",
+                evidence=f"duration_minutes={features.duration_minutes:.0f}; reason={session.reason_code}",
+            )
+        ]
+
+    def _reason_documents_extension(self, reason: str) -> bool:
+        normalized = reason.lower()
+        return any(term in normalized for term in self.REJUSTIFICATION_TERMS)
+
+
 class R010SodConflictRule(Rule):
     """
     Detect the only SoD conflict currently modeled from historical data.
@@ -266,6 +295,7 @@ def default_rules() -> list[Rule]:
         R006ExcessiveChangeVolumeRule(),
         R007AfterHoursWithoutEmergencyRule(),
         R008SelfApprovalRule(),
+        R009LongSessionWithoutRejustificationRule(),
         R010SodConflictRule(),
     ]
 
