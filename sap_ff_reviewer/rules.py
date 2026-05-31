@@ -5,10 +5,8 @@ from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
 # TODO: Implement remaining baseline rules from the challenge:
 # - R-002: Reason mentions one system/module, but transactions touch a different one.
-# - R-004: Direct table modification without documented data-fix/change approval.
 # - R-006: Transaction or change count exceeds a reasonable threshold for the stated reason.
 # - R-009: Session duration exceeds the auto-extend limit without re-justification.
-# - R-010: Known SoD-conflict transaction pairs in one session.
 #
 # TODO: Consider additional rules after reviewing train/test patterns:
 # - R-011: Missing ticket reference for a session that made production changes.
@@ -88,6 +86,43 @@ class R003DebugActivityRule(Rule):
         message = entry.get("message", "<missing message>")
         log_type = entry.get("type", "<missing system_log type>")
         return f"{timestamp} - {message} ({log_type})"
+
+
+class R004DirectTableModificationRule(Rule):
+    rule_id = "R-004"
+    severity = "high"
+    DIRECT_TABLE_TCODES = {"SE16N", "SM30"}
+    SENSITIVE_TABLES = {"T001", "LFA1", "LFB1", "LFBK", "USR02"}
+    # TODO: Expand these terms from historical reviews, ticketing metadata, or client-specific data-fix wording.
+    DATA_FIX_TERMS = (
+        "data fix",
+        "approved data fix",
+        "approved change",
+        "change request",
+        "table correction",
+        "production data correction",
+    )
+
+    def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        direct_table_tcodes = features.tcodes & self.DIRECT_TABLE_TCODES
+        if not direct_table_tcodes:
+            return []
+
+        sensitive_tables = features.changed_tables & self.SENSITIVE_TABLES
+        if not sensitive_tables or self._reason_documents_data_fix(session.reason_code):
+            return []
+
+        return [
+            self.finding(
+                location="change_log",
+                description="Direct table maintenance changed sensitive table data without reason code documenting an approved data fix.",
+                evidence=f"tcodes={', '.join(sorted(direct_table_tcodes))}; tables={', '.join(sorted(sensitive_tables))}",
+            )
+        ]
+
+    def _reason_documents_data_fix(self, reason_code: str) -> bool:
+        normalized = reason_code.lower()
+        return any(term in normalized for term in self.DATA_FIX_TERMS)
 
 
 class R005OsCommandRule(Rule):
@@ -187,6 +222,7 @@ def default_rules() -> list[Rule]:
     return [
         R001WeakReasonRule(),
         R003DebugActivityRule(),
+        R004DirectTableModificationRule(),
         R005OsCommandRule(),
         R007AfterHoursWithoutEmergencyRule(),
         R008SelfApprovalRule(),

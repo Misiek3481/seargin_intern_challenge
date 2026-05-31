@@ -3,6 +3,7 @@ from sap_ff_reviewer.parser import SessionParser
 from sap_ff_reviewer.rules import (
     R001WeakReasonRule,
     R003DebugActivityRule,
+    R004DirectTableModificationRule,
     R005OsCommandRule,
     R007AfterHoursWithoutEmergencyRule,
     R008SelfApprovalRule,
@@ -69,6 +70,36 @@ def test_r003_flags_debug_activity():
     assert findings[0].severity == "critical"
     assert findings[0].location == "system_log[0]"
     assert "Debug session started" in findings[0].evidence
+
+
+def test_r004_flags_direct_sensitive_table_modification_without_data_fix_reason():
+    session = make_session({
+        "reason_code": "Quick configuration check",
+        "transaction_log": [{"tcode": "SE16N"}],
+        "change_log": [{"table": "T001", "field": "WAERS", "old_value": "EUR", "new_value": "USD"}],
+    })
+    features = extract_features(session)
+
+    findings = R004DirectTableModificationRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-004"
+    assert findings[0].severity == "high"
+    assert findings[0].location == "change_log"
+    assert findings[0].evidence == "tcodes=SE16N; tables=T001"
+
+
+def test_r004_does_not_flag_direct_table_modification_with_data_fix_reason():
+    session = make_session({
+        "reason_code": "Approved data fix for vendor bank data per CHG1234567",
+        "transaction_log": [{"tcode": "SE16N"}],
+        "change_log": [{"table": "LFBK", "field": "IBAN", "old_value": "A", "new_value": "B"}],
+    })
+    features = extract_features(session)
+
+    findings = R004DirectTableModificationRule().check(session, features)
+
+    assert findings == []
 
 
 def test_r005_flags_os_command_execution():
