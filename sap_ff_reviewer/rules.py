@@ -150,6 +150,39 @@ class R008SelfApprovalRule(Rule):
         ]
 
 
+class R010SodConflictRule(Rule):
+    """
+    Detect the only SoD conflict currently modeled from historical data.
+
+    This implementation recognizes vendor maintenance transactions combined with
+    payment execution transactions in the same firefighter session. No other SoD
+    pairs are currently modeled because this was the only clear conflict pattern
+    observed in the provided historical dataset, and the available transaction
+    mix does not provide enough evidence for reliable additional SoD pairs.
+    """
+
+    rule_id = "R-010"
+    severity = "critical"
+    VENDOR_MAINTENANCE_TCODES = {"XK02", "FK02", "XK05"}
+    PAYMENT_TCODES = {"F110", "F-53"}
+
+    def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        vendor_tcodes = features.tcodes & self.VENDOR_MAINTENANCE_TCODES
+        payment_tcodes = features.tcodes & self.PAYMENT_TCODES
+
+        if not vendor_tcodes or not payment_tcodes:
+            return []
+
+        evidence = ", ".join(sorted(vendor_tcodes | payment_tcodes))
+        return [
+            self.finding(
+                location="transaction_log",
+                description="SoD conflict: vendor maintenance and payment execution occurred in the same firefighter session.",
+                evidence=evidence,
+            )
+        ]
+
+
 def default_rules() -> list[Rule]:
     return [
         R001WeakReasonRule(),
@@ -157,6 +190,7 @@ def default_rules() -> list[Rule]:
         R005OsCommandRule(),
         R007AfterHoursWithoutEmergencyRule(),
         R008SelfApprovalRule(),
+        R010SodConflictRule(),
     ]
 
 

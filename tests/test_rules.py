@@ -6,6 +6,7 @@ from sap_ff_reviewer.rules import (
     R005OsCommandRule,
     R007AfterHoursWithoutEmergencyRule,
     R008SelfApprovalRule,
+    R010SodConflictRule,
     RuleEngine,
 )
 
@@ -114,6 +115,28 @@ def test_r008_flags_firefighter_as_ticket_requester():
     assert findings[0].rule_id == "R-008"
     assert findings[0].severity == "high"
     assert findings[0].location == "ticket_requester"
+
+
+def test_r010_flags_vendor_maintenance_and_payment_execution():
+    session = make_session({"transaction_log": [{"tcode": "XK02"}, {"tcode": "F110"}]})
+    features = extract_features(session)
+
+    findings = R010SodConflictRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-010"
+    assert findings[0].severity == "critical"
+    assert findings[0].location == "transaction_log"
+    assert findings[0].evidence == "F110, XK02"
+
+
+def test_r010_does_not_flag_payment_without_vendor_maintenance():
+    session = make_session({"transaction_log": [{"tcode": "F110"}, {"tcode": "FBL1N"}]})
+    features = extract_features(session)
+
+    findings = R010SodConflictRule().check(session, features)
+
+    assert findings == []
 
 
 def test_rule_engine_runs_all_configured_rules():
