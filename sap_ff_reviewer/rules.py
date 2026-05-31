@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from sap_ff_reviewer.llm import OllamaR002Assessor, R002LlmAssessor
 from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
 
@@ -12,7 +13,6 @@ from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 # - R-014: Logs outside the declared firefighter time window.
 # - R-015: Repeated failed authorization checks followed by sensitive changes.
 # - R-016: Suspicious transaction sequence, e.g. table inspection immediately followed by direct edit.
-
 
 class Rule:
     rule_id: str
@@ -76,7 +76,27 @@ class R002ReasonActionMismatchRule(Rule):
     VENDOR_MAINTENANCE_TCODES = {"XK02", "FK02", "XK05"}
     PAYMENT_TCODES = {"F110", "F-53"}
 
+    def __init__(self, llm_assessor: R002LlmAssessor | None = None):
+        self.llm_assessor = llm_assessor
+
     def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        heuristic_findings = self._check_heuristic(session, features)
+        if heuristic_findings or self.llm_assessor is None:
+            return heuristic_findings
+
+        assessment = self.llm_assessor.assess(session, features)
+        if assessment is None:
+            return []
+
+        return [
+            self.finding(
+                location="reason_code",
+                description=assessment.description,
+                evidence=assessment.evidence,
+            )
+        ]
+
+    def _check_heuristic(self, session: Session, features: SessionFeatures) -> list[Finding]:
         reason = features.reason.lower()
 
         if self._contains_any(reason, self.READ_ONLY_REASON_TERMS) and features.change_count > 0:
@@ -340,10 +360,17 @@ class R010SodConflictRule(Rule):
         ]
 
 
-def default_rules() -> list[Rule]:
+def default_rules(
+    use_r002_llm: bool = False,
+    r002_llm_assessor: R002LlmAssessor | None = None,
+    ollama_model: str | None = None,
+) -> list[Rule]:
+    if r002_llm_assessor is None and use_r002_llm:
+        r002_llm_assessor = OllamaR002Assessor(model=ollama_model)
+
     return [
         R001WeakReasonRule(),
-        R002ReasonActionMismatchRule(),
+        R002ReasonActionMismatchRule(llm_assessor=r002_llm_assessor),
         R003DebugActivityRule(),
         R004DirectTableModificationRule(),
         R005OsCommandRule(),

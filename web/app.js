@@ -1,5 +1,7 @@
 const fileInput = document.querySelector("#sessionFile");
 const reviewButton = document.querySelector("#reviewButton");
+const useLlmR002 = document.querySelector("#useLlmR002");
+const ollamaModel = document.querySelector("#ollamaModel");
 const errorMessage = document.querySelector("#errorMessage");
 const resultPanel = document.querySelector("#resultPanel");
 const statusBadge = document.querySelector("#statusBadge");
@@ -45,7 +47,14 @@ async function reviewSelectedFile() {
   try {
     reviewButton.disabled = true;
     currentSession = payload;
-    const response = await fetch("/review", {
+    const params = new URLSearchParams({
+      use_llm_r002: useLlmR002.checked ? "true" : "false",
+    });
+    if (ollamaModel.value.trim()) {
+      params.set("ollama_model", ollamaModel.value.trim());
+    }
+
+    const response = await fetch(`/review?${params.toString()}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

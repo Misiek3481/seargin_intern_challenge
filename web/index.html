@@ -22,6 +22,16 @@
           <input id="sessionFile" type="file" accept="application/json,.json">
           <button id="reviewButton" type="button">Review</button>
         </div>
+        <div class="review-options">
+          <label class="toggle-option" for="useLlmR002">
+            <input id="useLlmR002" type="checkbox">
+            <span>Use Ollama fallback for R-002</span>
+          </label>
+          <label class="model-option" for="ollamaModel">
+            <span>Model</span>
+            <input id="ollamaModel" type="text" value="llama3.1" autocomplete="off">
+          </label>
+        </div>
         <p id="errorMessage" class="error-message" role="alert"></p>
       </section>
 

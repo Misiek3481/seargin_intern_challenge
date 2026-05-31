@@ -1,4 +1,5 @@
 from sap_ff_reviewer.features import FeatureExtractor
+from sap_ff_reviewer.llm import R002LlmAssessment
 from sap_ff_reviewer.parser import SessionParser
 from sap_ff_reviewer.rules import (
     R001WeakReasonRule,
@@ -39,6 +40,16 @@ def make_session(overrides=None):
 
 def extract_features(session):
     return FeatureExtractor().extract(session)
+
+
+class FakeR002LlmAssessor:
+    def __init__(self, assessment=None):
+        self.assessment = assessment
+        self.calls = 0
+
+    def assess(self, session, features):
+        self.calls += 1
+        return self.assessment
 
 
 def test_r001_flags_empty_reason():
@@ -117,6 +128,48 @@ def test_r002_does_not_flag_matching_payment_investigation():
 
     findings = R002ReasonActionMismatchRule().check(session, features)
 
+    assert findings == []
+
+
+def test_r002_uses_llm_fallback_when_heuristic_does_not_flag():
+    session = make_session({"reason_code": "Investigated failed payment run per INC1234567", "transaction_log": [{"tcode": "F110"}, {"tcode": "MIRO"}]})
+    features = extract_features(session)
+    assessor = FakeR002LlmAssessor(
+        R002LlmAssessment(
+            description="LLM review found possible reason/action mismatch: MM invoice transaction is outside payment run scope.",
+            evidence="reason mentions payment run; tcode MIRO was used (model=test, confidence=0.90)",
+            confidence=0.9,
+        )
+    )
+
+    findings = R002ReasonActionMismatchRule(llm_assessor=assessor).check(session, features)
+
+    assert assessor.calls == 1
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-002"
+    assert "LLM review" in findings[0].description
+
+
+def test_r002_does_not_call_llm_when_heuristic_already_flags():
+    session = make_session({"reason_code": "Reset user lock for HR consultant", "transaction_log": [{"tcode": "XK02"}]})
+    features = extract_features(session)
+    assessor = FakeR002LlmAssessor()
+
+    findings = R002ReasonActionMismatchRule(llm_assessor=assessor).check(session, features)
+
+    assert assessor.calls == 0
+    assert len(findings) == 1
+    assert "user reset" in findings[0].description
+
+
+def test_r002_returns_no_finding_when_llm_fallback_is_clear():
+    session = make_session({"reason_code": "Investigated failed payment run per INC1234567", "transaction_log": [{"tcode": "F110"}]})
+    features = extract_features(session)
+    assessor = FakeR002LlmAssessor()
+
+    findings = R002ReasonActionMismatchRule(llm_assessor=assessor).check(session, features)
+
+    assert assessor.calls == 1
     assert findings == []
 
 
