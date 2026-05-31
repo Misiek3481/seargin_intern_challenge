@@ -5,6 +5,7 @@ from sap_ff_reviewer.rules import (
     R003DebugActivityRule,
     R004DirectTableModificationRule,
     R005OsCommandRule,
+    R006ExcessiveChangeVolumeRule,
     R007AfterHoursWithoutEmergencyRule,
     R008SelfApprovalRule,
     R010SodConflictRule,
@@ -113,6 +114,41 @@ def test_r005_flags_os_command_execution():
     assert findings[0].severity == "critical"
     assert findings[0].location == "os_command_log[0]"
     assert findings[0].evidence == "whoami -all"
+
+
+def test_r006_flags_mass_change_volume():
+    changes = [{"table": "LFA1", "key": str(index)} for index in range(200)]
+    session = make_session({"change_log": changes})
+    features = extract_features(session)
+
+    findings = R006ExcessiveChangeVolumeRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-006"
+    assert findings[0].severity == "high"
+    assert "change_count=200" in findings[0].evidence
+
+
+def test_r006_flags_many_changes_for_single_object_reason():
+    changes = [{"table": "LFA1", "key": str(index)} for index in range(11)]
+    session = make_session({"reason_code": "Fix one vendor blocked status", "change_log": changes})
+    features = extract_features(session)
+
+    findings = R006ExcessiveChangeVolumeRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-006"
+    assert "single-object fix" in findings[0].description
+
+
+def test_r006_does_not_flag_small_change_volume():
+    changes = [{"table": "LFA1", "key": "100234"}]
+    session = make_session({"reason_code": "Fix one vendor blocked status", "change_log": changes})
+    features = extract_features(session)
+
+    findings = R006ExcessiveChangeVolumeRule().check(session, features)
+
+    assert findings == []
 
 
 def test_r007_flags_after_hours_without_emergency_reason():

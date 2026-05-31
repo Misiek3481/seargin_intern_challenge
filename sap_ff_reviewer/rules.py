@@ -5,7 +5,6 @@ from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
 # TODO: Implement remaining baseline rules from the challenge:
 # - R-002: Reason mentions one system/module, but transactions touch a different one.
-# - R-006: Transaction or change count exceeds a reasonable threshold for the stated reason.
 # - R-009: Session duration exceeds the auto-extend limit without re-justification.
 #
 # TODO: Consider additional rules after reviewing train/test patterns:
@@ -146,6 +145,46 @@ class R005OsCommandRule(Rule):
         return findings
 
 
+class R006ExcessiveChangeVolumeRule(Rule):
+    rule_id = "R-006"
+    severity = "high"
+    MASS_CHANGE_THRESHOLD = 200
+    SINGLE_OBJECT_CHANGE_THRESHOLD = 10
+    SINGLE_OBJECT_TERMS = (
+        "one vendor",
+        "single vendor",
+        "one user",
+        "single user",
+        "one customer",
+        "single customer",
+    )
+
+    def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        if features.change_count >= self.MASS_CHANGE_THRESHOLD:
+            return [
+                self.finding(
+                    location="change_log",
+                    description="Change-document count exceeds the mass-change threshold for a firefighter session.",
+                    evidence=f"change_count={features.change_count}; reason={session.reason_code}",
+                )
+            ]
+
+        if self._reason_mentions_single_object(features.reason) and features.change_count > self.SINGLE_OBJECT_CHANGE_THRESHOLD:
+            return [
+                self.finding(
+                    location="change_log",
+                    description="Reason code indicates a single-object fix, but the session contains many change documents.",
+                    evidence=f"change_count={features.change_count}; reason={session.reason_code}",
+                )
+            ]
+
+        return []
+
+    def _reason_mentions_single_object(self, reason: str) -> bool:
+        normalized = reason.lower()
+        return any(term in normalized for term in self.SINGLE_OBJECT_TERMS)
+
+
 class R007AfterHoursWithoutEmergencyRule(Rule):
     rule_id = "R-007"
     severity = "medium"
@@ -224,6 +263,7 @@ def default_rules() -> list[Rule]:
         R003DebugActivityRule(),
         R004DirectTableModificationRule(),
         R005OsCommandRule(),
+        R006ExcessiveChangeVolumeRule(),
         R007AfterHoursWithoutEmergencyRule(),
         R008SelfApprovalRule(),
         R010SodConflictRule(),
