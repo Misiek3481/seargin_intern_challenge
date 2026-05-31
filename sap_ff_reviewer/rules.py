@@ -2,16 +2,9 @@ from __future__ import annotations
 
 from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
-
-# TODO: Implement remaining baseline rules from the challenge:
-#
 # TODO: Consider additional rules after reviewing train/test patterns:
-# - R-011: Missing ticket reference for a session that made production changes.
-# - R-012: Sensitive table changes, e.g. vendor bank, company code, user master, or role tables.
-# - R-013: Display-only reason but write/change transactions or change_log entries are present.
-# - R-014: Logs outside the declared firefighter time window.
-# - R-015: Repeated failed authorization checks followed by sensitive changes.
-# - R-016: Suspicious transaction sequence, e.g. table inspection immediately followed by direct edit.
+# - R-012: Logs outside the declared firefighter time window.
+# - R-013: Repeated failed authorization checks followed by sensitive changes.
 
 
 class Rule:
@@ -340,6 +333,34 @@ class R010SodConflictRule(Rule):
         ]
 
 
+class R011MissingTicketForProductionChangeRule(Rule):
+    rule_id = "R-011"
+    severity = "medium"
+
+    def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        if features.has_ticket_reference:
+            return []
+
+        if features.change_count == 0:
+            return [
+                Finding(
+                    rule_id=self.rule_id,
+                    severity="low",
+                    location="ticket_reference",
+                    description="Firefighter session is missing a ticket reference for audit traceability.",
+                    evidence="ticket_reference=<empty>; change_count=0",
+                )
+            ]
+
+        return [
+            self.finding(
+                location="ticket_reference",
+                description="Session made production data changes without a ticket reference for audit traceability.",
+                evidence=f"ticket_reference=<empty>; change_count={features.change_count}",
+            )
+        ]
+
+
 def default_rules() -> list[Rule]:
     return [
         R001WeakReasonRule(),
@@ -352,6 +373,7 @@ def default_rules() -> list[Rule]:
         R008SelfApprovalRule(),
         R009LongSessionWithoutRejustificationRule(),
         R010SodConflictRule(),
+        R011MissingTicketForProductionChangeRule(),
     ]
 
 

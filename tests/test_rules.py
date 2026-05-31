@@ -11,6 +11,7 @@ from sap_ff_reviewer.rules import (
     R008SelfApprovalRule,
     R009LongSessionWithoutRejustificationRule,
     R010SodConflictRule,
+    R011MissingTicketForProductionChangeRule,
     RuleEngine,
 )
 
@@ -288,6 +289,41 @@ def test_r010_does_not_flag_payment_without_vendor_maintenance():
     features = extract_features(session)
 
     findings = R010SodConflictRule().check(session, features)
+
+    assert findings == []
+
+
+def test_r011_flags_production_change_without_ticket_reference():
+    session = make_session({"ticket_reference": "", "change_log": [{"table": "LFA1", "field": "SPERR"}]})
+    features = extract_features(session)
+
+    findings = R011MissingTicketForProductionChangeRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-011"
+    assert findings[0].severity == "medium"
+    assert findings[0].location == "ticket_reference"
+    assert "change_count=1" in findings[0].evidence
+
+
+def test_r011_flags_read_only_session_without_ticket_reference_as_low_severity():
+    session = make_session({"ticket_reference": "", "change_log": []})
+    features = extract_features(session)
+
+    findings = R011MissingTicketForProductionChangeRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-011"
+    assert findings[0].severity == "low"
+    assert findings[0].location == "ticket_reference"
+    assert "change_count=0" in findings[0].evidence
+
+
+def test_r011_does_not_flag_production_change_with_ticket_reference():
+    session = make_session({"ticket_reference": "INC1234567", "change_log": [{"table": "LFA1", "field": "SPERR"}]})
+    features = extract_features(session)
+
+    findings = R011MissingTicketForProductionChangeRule().check(session, features)
 
     assert findings == []
 
