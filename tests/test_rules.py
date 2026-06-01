@@ -111,15 +111,24 @@ def test_r002_flags_fi_reason_with_mm_actions():
     assert "MM" in findings[0].description
 
 
-def test_r002_flags_reason_admitting_vendor_maintenance_and_payment_execution():
+def test_r002_does_not_heuristically_flag_matching_vendor_payment_scope():
     session = make_session({"reason_code": "Updated vendor bank details and triggered payment per CHG1234567", "transaction_log": [{"tcode": "XK02"}, {"tcode": "F110"}]})
     features = extract_features(session)
 
     findings = R002ReasonActionMismatchRule().check(session, features)
 
-    assert len(findings) == 1
-    assert findings[0].rule_id == "R-002"
-    assert "vendor maintenance and payment execution" in findings[0].description
+    assert findings == []
+
+
+def test_r002_calls_llm_for_payment_execution_when_heuristic_passes():
+    session = make_session({"reason_code": "Resolved failed payment run per INC1234567", "transaction_log": [{"tcode": "F110"}]})
+    features = extract_features(session)
+    assessor = FakeR002LlmAssessor()
+
+    findings = R002ReasonActionMismatchRule(llm_assessor=assessor).check(session, features)
+
+    assert assessor.calls == 1
+    assert findings == []
 
 
 def test_r002_does_not_flag_matching_payment_investigation():
@@ -163,7 +172,7 @@ def test_r002_does_not_call_llm_when_heuristic_already_flags():
 
 
 def test_r002_skips_llm_when_prefilter_finds_no_scope_mismatch():
-    session = make_session({"reason_code": "Investigated failed payment run per INC1234567", "transaction_log": [{"tcode": "F110"}]})
+    session = make_session({"reason_code": "Reviewed FI document display per INC1234567", "transaction_log": [{"tcode": "FB03"}]})
     features = extract_features(session)
     assessor = FakeR002LlmAssessor()
 
@@ -325,8 +334,13 @@ def test_r009_does_not_flag_long_session_with_rejustification():
     assert findings == []
 
 
-def test_r010_flags_vendor_maintenance_and_payment_execution():
-    session = make_session({"transaction_log": [{"tcode": "XK02"}, {"tcode": "F110"}]})
+def test_r010_flags_vendor_bank_change_and_payment_run():
+    session = make_session(
+        {
+            "transaction_log": [{"tcode": "XK02"}, {"tcode": "F110"}],
+            "change_log": [{"table": "LFBK", "field": "IBAN", "old": "DE001", "new": "DE002"}],
+        }
+    )
     features = extract_features(session)
 
     findings = R010SodConflictRule().check(session, features)
@@ -335,7 +349,21 @@ def test_r010_flags_vendor_maintenance_and_payment_execution():
     assert findings[0].rule_id == "R-010"
     assert findings[0].severity == "critical"
     assert findings[0].location == "transaction_log"
-    assert findings[0].evidence == "F110, XK02"
+    assert findings[0].evidence == "F110, XK02, LFBK.IBAN"
+
+
+def test_r010_does_not_flag_vendor_status_update_and_payment_run():
+    session = make_session(
+        {
+            "transaction_log": [{"tcode": "XK05"}, {"tcode": "F110"}],
+            "change_log": [{"table": "LFA1", "field": "SPERR", "old": "X", "new": ""}],
+        }
+    )
+    features = extract_features(session)
+
+    findings = R010SodConflictRule().check(session, features)
+
+    assert findings == []
 
 
 def test_r010_does_not_flag_payment_without_vendor_maintenance():

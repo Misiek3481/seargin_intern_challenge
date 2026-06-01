@@ -60,8 +60,9 @@ class R002ReasonActionMismatchRule(Rule):
     This is a deterministic heuristic, not a full semantic interpretation. It
     covers mismatch patterns visible in the historical data: read-only/check
     reasons with production changes, user-reset reasons with finance/vendor
-    actions, FI posting reasons with MM invoice/goods movement actions, and
-    reason codes that admit vendor maintenance plus payment execution.
+    actions, and FI posting reasons with MM invoice/goods movement actions.
+    Vendor/payment activity is treated as a risk signal for LLM confirmation,
+    not as a deterministic R-002 mismatch when the reason already states it.
     """
 
     rule_id = "R-002"
@@ -69,8 +70,6 @@ class R002ReasonActionMismatchRule(Rule):
     READ_ONLY_REASON_TERMS = ("check", "investigation", "investigate", "display", "review")
     USER_RESET_REASON_TERMS = ("reset user", "user lock", "locked user", "hr consultant")
     FI_POSTING_REASON_TERMS = ("fi", "posting", "g/l", "gl account", "general ledger")
-    VENDOR_REASON_TERMS = ("vendor", "bank details", "bank data", "iban")
-    PAYMENT_REASON_TERMS = ("payment", "payment run", "f110")
     BASIS_REASON_TERMS = ("basis", "transport", "system maintenance", "system error", "work process", "runbook")
     FINANCE_VENDOR_PAYMENT_TCODES = {"FB02", "F110", "F-53", "FBL1N", "XK02", "FK02", "XK05"}
     MM_TCODES = {"MIRO", "MIGO", "ME23N"}
@@ -134,11 +133,6 @@ class R002ReasonActionMismatchRule(Rule):
             evidence = f"reason={session.reason_code}; tcodes={', '.join(sorted(features.tcodes & self.MM_TCODES))}"
             return [self._build_finding("Reason indicates FI posting investigation, but transactions include MM purchasing/invoice actions.", evidence)]
 
-        mentions_vendor_and_payment = self._contains_any(reason, self.VENDOR_REASON_TERMS) and self._contains_any(reason, self.PAYMENT_REASON_TERMS)
-        has_vendor_and_payment = bool(features.tcodes & self.VENDOR_MAINTENANCE_TCODES) and bool(features.tcodes & self.PAYMENT_TCODES)
-        if mentions_vendor_and_payment and has_vendor_and_payment:
-            return [self._build_finding("Reason admits both vendor maintenance and payment execution in one firefighter session.", session.reason_code)]
-
         return []
 
     def _should_call_llm(self, session: Session, features: SessionFeatures) -> tuple[bool, str]:
@@ -152,6 +146,9 @@ class R002ReasonActionMismatchRule(Rule):
 
         if self._contains_any(reason, self.FI_POSTING_REASON_TERMS) and features.tcodes & self.MM_TCODES:
             return True, "FI reason with MM transactions"
+
+        if features.tcodes & self.PAYMENT_TCODES:
+            return True, "payment execution transaction requires semantic R-002 confirmation"
 
         if self._contains_any(reason, self.BASIS_REASON_TERMS) and (features.tcodes & self.BUSINESS_DATA_TCODES or features.change_count > 0):
             return True, "technical/system reason with business data transactions or changes"
@@ -390,33 +387,45 @@ class R010SodConflictRule(Rule):
     """
     Detect the only SoD conflict currently modeled from historical data.
 
-    This implementation recognizes vendor maintenance transactions combined with
-    payment execution transactions in the same firefighter session. No other SoD
-    pairs are currently modeled because this was the only clear conflict pattern
-    observed in the provided historical dataset, and the available transaction
-    mix does not provide enough evidence for reliable additional SoD pairs.
+    This implementation recognizes vendor bank-data changes combined with a
+    payment run in the same firefighter session. A generic vendor status update
+    plus payment transaction is not enough evidence for this SoD conflict.
     """
 
     rule_id = "R-010"
     severity = "critical"
     VENDOR_MAINTENANCE_TCODES = {"XK02", "FK02", "XK05"}
-    PAYMENT_TCODES = {"F110", "F-53"}
+    PAYMENT_RUN_TCODES = {"F110"}
+    VENDOR_BANK_TABLES = {"LFBK"}
+    VENDOR_BANK_FIELDS = {"BANKN", "IBAN", "BANKL"}
 
     def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
         vendor_tcodes = features.tcodes & self.VENDOR_MAINTENANCE_TCODES
-        payment_tcodes = features.tcodes & self.PAYMENT_TCODES
+        payment_tcodes = features.tcodes & self.PAYMENT_RUN_TCODES
+        bank_change_evidence = self._vendor_bank_change_evidence(session)
 
-        if not vendor_tcodes or not payment_tcodes:
+        if not payment_tcodes or not bank_change_evidence:
             return []
 
-        evidence = ", ".join(sorted(vendor_tcodes | payment_tcodes))
+        evidence_items = sorted(vendor_tcodes | payment_tcodes)
+        evidence_items.extend(bank_change_evidence)
+        evidence = ", ".join(evidence_items)
         return [
             self.finding(
                 location="transaction_log",
-                description="SoD conflict: vendor maintenance and payment execution occurred in the same firefighter session.",
+                description="SoD conflict: vendor bank-data change and payment run occurred in the same firefighter session.",
                 evidence=evidence,
             )
         ]
+
+    def _vendor_bank_change_evidence(self, session: Session) -> list[str]:
+        evidence: list[str] = []
+        for entry in session.change_log:
+            table = str(entry.get("table", "")).strip().upper()
+            field = str(entry.get("field", "")).strip().upper()
+            if table in self.VENDOR_BANK_TABLES or field in self.VENDOR_BANK_FIELDS:
+                evidence.append(f"{table}.{field}".strip("."))
+        return evidence[:3]
 
 
 def default_rules(

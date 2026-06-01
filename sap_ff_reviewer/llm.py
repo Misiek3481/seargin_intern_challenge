@@ -229,6 +229,9 @@ class OllamaR002Assessor:
             "read-only/check/review reason with production changes; "
             "FI posting reason with MM invoice, purchasing, or goods movement transactions; "
             "Basis/transport/system-maintenance reason with business data changes. "
+            "Vendor maintenance plus payment execution is not automatically an R-002 mismatch "
+            "when both activities are clearly stated by the reason; only mark mismatch=true if "
+            "the reason omits, understates, or contradicts the executed scope. "
             "Return mismatch=false when the actions plausibly match the stated reason. "
             "Return exactly this JSON shape: "
             '{"mismatch": boolean, "confidence": number, "description": string, "evidence": string}.\n\n'
