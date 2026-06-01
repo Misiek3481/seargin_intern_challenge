@@ -41,11 +41,28 @@ def review_dir(sessions_dir: Path, output: Path, use_r002_llm: bool = False, oll
     session_files = sorted(sessions_dir.glob("*.json"))
 
     with output.open("w", encoding="utf-8") as file:
-        for session_file in session_files:
+        for index, session_file in enumerate(session_files, start=1):
             result = engine.review_file(session_file)
-            file.write(json.dumps(review_result_to_dict(result)) + "\n")
+            result_dict = review_result_to_dict(result)
+            file.write(json.dumps(result_dict) + "\n")
+            print(_format_progress(index, len(session_files), result_dict), flush=True)
 
     print(f"Wrote {len(session_files)} predictions to {output}")
+
+
+def _format_progress(index: int, total: int, result: dict) -> str:
+    diagnostics = result.get("diagnostics") or {}
+    r002_llm = diagnostics.get("r002_llm") or {}
+    llm_status = r002_llm.get("status", "not_used")
+    elapsed_ms = r002_llm.get("elapsed_ms")
+    elapsed = f", r002_llm_ms={elapsed_ms}" if elapsed_ms is not None else ""
+    findings = ",".join(finding["rule_id"] for finding in result.get("findings", [])) or "none"
+    return (
+        f"[{index}/{total}] session={result['session_id']} "
+        f"verdict={result['verdict']} findings={findings} "
+        f"r002_llm={llm_status}{elapsed}"
+    )
+
 
 if __name__ == "__main__":
     main()

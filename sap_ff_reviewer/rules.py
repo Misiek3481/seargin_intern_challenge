@@ -71,10 +71,12 @@ class R002ReasonActionMismatchRule(Rule):
     FI_POSTING_REASON_TERMS = ("fi", "posting", "g/l", "gl account", "general ledger")
     VENDOR_REASON_TERMS = ("vendor", "bank details", "bank data", "iban")
     PAYMENT_REASON_TERMS = ("payment", "payment run", "f110")
+    BASIS_REASON_TERMS = ("basis", "transport", "system maintenance", "system error", "work process", "runbook")
     FINANCE_VENDOR_PAYMENT_TCODES = {"FB02", "F110", "F-53", "FBL1N", "XK02", "FK02", "XK05"}
     MM_TCODES = {"MIRO", "MIGO", "ME23N"}
     VENDOR_MAINTENANCE_TCODES = {"XK02", "FK02", "XK05"}
     PAYMENT_TCODES = {"F110", "F-53"}
+    BUSINESS_DATA_TCODES = FINANCE_VENDOR_PAYMENT_TCODES | MM_TCODES | {"SE16N", "SM30"}
 
     def __init__(self, llm_assessor: R002LlmAssessor | None = None):
         self.llm_assessor = llm_assessor
@@ -91,6 +93,14 @@ class R002ReasonActionMismatchRule(Rule):
             else:
                 self._llm_diagnostic = None
             return heuristic_findings
+
+        should_call_llm, reason = self._should_call_llm(session, features)
+        if not should_call_llm:
+            self._llm_diagnostic = {
+                "status": "skipped_prefilter",
+                "message": f"Ollama was not called because the R-002 pre-filter did not find a likely scope mismatch: {reason}.",
+            }
+            return []
 
         assessment = self.llm_assessor.assess(session, features)
         self._llm_diagnostic = getattr(self.llm_assessor, "last_diagnostic", None)
@@ -130,6 +140,41 @@ class R002ReasonActionMismatchRule(Rule):
             return [self._build_finding("Reason admits both vendor maintenance and payment execution in one firefighter session.", session.reason_code)]
 
         return []
+
+    def _should_call_llm(self, session: Session, features: SessionFeatures) -> tuple[bool, str]:
+        reason = features.reason.lower()
+
+        if self._contains_any(reason, self.USER_RESET_REASON_TERMS) and features.tcodes & self.FINANCE_VENDOR_PAYMENT_TCODES:
+            return True, "user-support reason with finance/vendor/payment transactions"
+
+        if self._contains_any(reason, self.READ_ONLY_REASON_TERMS) and features.change_count > 0:
+            return True, "read-only reason with production changes"
+
+        if self._contains_any(reason, self.FI_POSTING_REASON_TERMS) and features.tcodes & self.MM_TCODES:
+            return True, "FI reason with MM transactions"
+
+        if self._contains_any(reason, self.BASIS_REASON_TERMS) and (features.tcodes & self.BUSINESS_DATA_TCODES or features.change_count > 0):
+            return True, "technical/system reason with business data transactions or changes"
+
+        if features.reason_length < 20 and (features.tcodes & self.BUSINESS_DATA_TCODES or features.change_count > 0):
+            return True, "very short reason with business data transactions or changes"
+
+        if self._has_multiple_business_scopes(features) and features.reason_length < 60:
+            return True, "brief reason with multiple business scopes in actions"
+
+        return False, "scope appears either clear enough for deterministic rules or too low-signal for R-002 LLM review"
+
+    def _has_multiple_business_scopes(self, features: SessionFeatures) -> bool:
+        scopes = 0
+        if features.tcodes & (self.VENDOR_MAINTENANCE_TCODES | {"FBL1N"}):
+            scopes += 1
+        if features.tcodes & self.PAYMENT_TCODES:
+            scopes += 1
+        if features.tcodes & self.MM_TCODES:
+            scopes += 1
+        if features.changed_tables:
+            scopes += 1
+        return scopes >= 2
 
     def _contains_any(self, text: str, terms: tuple[str, ...]) -> bool:
         return any(term in text for term in terms)

@@ -162,15 +162,17 @@ def test_r002_does_not_call_llm_when_heuristic_already_flags():
     assert "user reset" in findings[0].description
 
 
-def test_r002_returns_no_finding_when_llm_fallback_is_clear():
+def test_r002_skips_llm_when_prefilter_finds_no_scope_mismatch():
     session = make_session({"reason_code": "Investigated failed payment run per INC1234567", "transaction_log": [{"tcode": "F110"}]})
     features = extract_features(session)
     assessor = FakeR002LlmAssessor()
 
-    findings = R002ReasonActionMismatchRule(llm_assessor=assessor).check(session, features)
+    rule = R002ReasonActionMismatchRule(llm_assessor=assessor)
+    findings = rule.check(session, features)
 
-    assert assessor.calls == 1
+    assert assessor.calls == 0
     assert findings == []
+    assert rule.diagnostics()["r002_llm"]["status"] == "skipped_prefilter"
 
 
 def test_r003_flags_debug_activity():
