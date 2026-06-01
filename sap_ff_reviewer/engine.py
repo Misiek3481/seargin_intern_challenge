@@ -6,7 +6,7 @@ from sap_ff_reviewer.correction import CorrectionBuilder
 from sap_ff_reviewer.features import FeatureExtractor
 from sap_ff_reviewer.models import ReviewResult, Session
 from sap_ff_reviewer.parser import SessionParser
-from sap_ff_reviewer.rules import RuleEngine
+from sap_ff_reviewer.rules import RuleEngine, default_rules
 from sap_ff_reviewer.verdict import VerdictAggregator
 
 
@@ -18,10 +18,12 @@ class ReviewEngine:
         rule_engine: RuleEngine | None = None,
         verdict_aggregator: VerdictAggregator | None = None,
         correction_builder: CorrectionBuilder | None = None,
+        use_r002_llm: bool = False,
+        ollama_model: str | None = None,
     ):
         self.parser = parser or SessionParser()
         self.feature_extractor = feature_extractor or FeatureExtractor()
-        self.rule_engine = rule_engine or RuleEngine()
+        self.rule_engine = rule_engine or RuleEngine(rules=default_rules(use_r002_llm=use_r002_llm, ollama_model=ollama_model))
         self.verdict_aggregator = verdict_aggregator or VerdictAggregator()
         self.correction_builder = correction_builder or CorrectionBuilder()
 
@@ -35,6 +37,7 @@ class ReviewEngine:
         verdict = self.verdict_aggregator.aggregate(findings)
         confidence = self.verdict_aggregator.confidence(verdict, findings)
         correction = self.correction_builder.build(session, findings, verdict)
+        diagnostics = self.rule_engine.diagnostics()
 
         return ReviewResult(
             session_id=session.session_id,
@@ -42,4 +45,5 @@ class ReviewEngine:
             confidence=confidence,
             findings=findings,
             suggested_correction=correction,
+            diagnostics=diagnostics,
         )

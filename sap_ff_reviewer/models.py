@@ -31,6 +31,7 @@ class ReviewResult:
     confidence: float
     findings: list[Finding]
     suggested_correction: SuggestedCorrection | None = None
+    diagnostics: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)

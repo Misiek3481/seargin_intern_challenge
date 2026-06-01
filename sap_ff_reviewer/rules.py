@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta
 
+from sap_ff_reviewer.llm import OllamaR002Assessor, R002LlmAssessor
 from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
 
@@ -66,8 +67,9 @@ class R002ReasonActionMismatchRule(Rule):
     This is a deterministic heuristic, not a full semantic interpretation. It
     covers mismatch patterns visible in the historical data: read-only/check
     reasons with production changes, user-reset reasons with finance/vendor
-    actions, FI posting reasons with MM invoice/goods movement actions, and
-    reason codes that admit vendor maintenance plus payment execution.
+    actions, and FI posting reasons with MM invoice/goods movement actions.
+    Vendor/payment activity is treated as a risk signal for LLM confirmation,
+    not as a deterministic R-002 mismatch when the reason already states it.
     """
 
     rule_id = "R-002"
@@ -75,14 +77,56 @@ class R002ReasonActionMismatchRule(Rule):
     READ_ONLY_REASON_TERMS = ("check", "investigation", "investigate", "display", "review")
     USER_RESET_REASON_TERMS = ("reset user", "user lock", "locked user", "hr consultant")
     FI_POSTING_REASON_TERMS = ("fi", "posting", "g/l", "gl account", "general ledger")
-    VENDOR_REASON_TERMS = ("vendor", "bank details", "bank data", "iban")
-    PAYMENT_REASON_TERMS = ("payment", "payment run", "f110")
+    BASIS_REASON_TERMS = ("basis", "transport", "system maintenance", "system error", "work process", "runbook")
     FINANCE_VENDOR_PAYMENT_TCODES = {"FB02", "F110", "F-53", "FBL1N", "XK02", "FK02", "XK05"}
     MM_TCODES = {"MIRO", "MIGO", "ME23N"}
     VENDOR_MAINTENANCE_TCODES = {"XK02", "FK02", "XK05"}
     PAYMENT_TCODES = {"F110", "F-53"}
+    BUSINESS_DATA_TCODES = FINANCE_VENDOR_PAYMENT_TCODES | MM_TCODES | {"SE16N", "SM30"}
+
+    def __init__(self, llm_assessor: R002LlmAssessor | None = None):
+        self.llm_assessor = llm_assessor
+        self._llm_diagnostic: dict | None = None
 
     def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        heuristic_findings = self._check_heuristic(session, features)
+        if heuristic_findings or self.llm_assessor is None:
+            if heuristic_findings and self.llm_assessor is not None:
+                self._llm_diagnostic = {
+                    "status": "skipped_heuristic_hit",
+                    "message": "Ollama was not called because the R-002 heuristic already produced a finding.",
+                }
+            else:
+                self._llm_diagnostic = None
+            return heuristic_findings
+
+        should_call_llm, reason = self._should_call_llm(session, features)
+        if not should_call_llm:
+            self._llm_diagnostic = {
+                "status": "skipped_prefilter",
+                "message": f"Ollama was not called because the R-002 pre-filter did not find a likely scope mismatch: {reason}.",
+            }
+            return []
+
+        assessment = self.llm_assessor.assess(session, features)
+        self._llm_diagnostic = getattr(self.llm_assessor, "last_diagnostic", None)
+        if assessment is None:
+            return []
+
+        return [
+            self.finding(
+                location="reason_code",
+                description=assessment.description,
+                evidence=assessment.evidence,
+            )
+        ]
+
+    def diagnostics(self) -> dict:
+        if self._llm_diagnostic is None:
+            return {}
+        return {"r002_llm": self._llm_diagnostic}
+
+    def _check_heuristic(self, session: Session, features: SessionFeatures) -> list[Finding]:
         reason = features.reason.lower()
 
         if self._contains_any(reason, self.READ_ONLY_REASON_TERMS) and features.change_count > 0:
@@ -96,12 +140,45 @@ class R002ReasonActionMismatchRule(Rule):
             evidence = f"reason={session.reason_code}; tcodes={', '.join(sorted(features.tcodes & self.MM_TCODES))}"
             return [self._build_finding("Reason indicates FI posting investigation, but transactions include MM purchasing/invoice actions.", evidence)]
 
-        mentions_vendor_and_payment = self._contains_any(reason, self.VENDOR_REASON_TERMS) and self._contains_any(reason, self.PAYMENT_REASON_TERMS)
-        has_vendor_and_payment = bool(features.tcodes & self.VENDOR_MAINTENANCE_TCODES) and bool(features.tcodes & self.PAYMENT_TCODES)
-        if mentions_vendor_and_payment and has_vendor_and_payment:
-            return [self._build_finding("Reason admits both vendor maintenance and payment execution in one firefighter session.", session.reason_code)]
-
         return []
+
+    def _should_call_llm(self, session: Session, features: SessionFeatures) -> tuple[bool, str]:
+        reason = features.reason.lower()
+
+        if self._contains_any(reason, self.USER_RESET_REASON_TERMS) and features.tcodes & self.FINANCE_VENDOR_PAYMENT_TCODES:
+            return True, "user-support reason with finance/vendor/payment transactions"
+
+        if self._contains_any(reason, self.READ_ONLY_REASON_TERMS) and features.change_count > 0:
+            return True, "read-only reason with production changes"
+
+        if self._contains_any(reason, self.FI_POSTING_REASON_TERMS) and features.tcodes & self.MM_TCODES:
+            return True, "FI reason with MM transactions"
+
+        if features.tcodes & self.PAYMENT_TCODES:
+            return True, "payment execution transaction requires semantic R-002 confirmation"
+
+        if self._contains_any(reason, self.BASIS_REASON_TERMS) and (features.tcodes & self.BUSINESS_DATA_TCODES or features.change_count > 0):
+            return True, "technical/system reason with business data transactions or changes"
+
+        if features.reason_length < 20 and (features.tcodes & self.BUSINESS_DATA_TCODES or features.change_count > 0):
+            return True, "very short reason with business data transactions or changes"
+
+        if self._has_multiple_business_scopes(features) and features.reason_length < 60:
+            return True, "brief reason with multiple business scopes in actions"
+
+        return False, "scope appears either clear enough for deterministic rules or too low-signal for R-002 LLM review"
+
+    def _has_multiple_business_scopes(self, features: SessionFeatures) -> bool:
+        scopes = 0
+        if features.tcodes & (self.VENDOR_MAINTENANCE_TCODES | {"FBL1N"}):
+            scopes += 1
+        if features.tcodes & self.PAYMENT_TCODES:
+            scopes += 1
+        if features.tcodes & self.MM_TCODES:
+            scopes += 1
+        if features.changed_tables:
+            scopes += 1
+        return scopes >= 2
 
     def _contains_any(self, text: str, terms: tuple[str, ...]) -> bool:
         return any(term in text for term in terms)
@@ -317,33 +394,45 @@ class R010SodConflictRule(Rule):
     """
     Detect the only SoD conflict currently modeled from historical data.
 
-    This implementation recognizes vendor maintenance transactions combined with
-    payment execution transactions in the same firefighter session. No other SoD
-    pairs are currently modeled because this was the only clear conflict pattern
-    observed in the provided historical dataset, and the available transaction
-    mix does not provide enough evidence for reliable additional SoD pairs.
+    This implementation recognizes vendor bank-data changes combined with a
+    payment run in the same firefighter session. A generic vendor status update
+    plus payment transaction is not enough evidence for this SoD conflict.
     """
 
     rule_id = "R-010"
     severity = "critical"
     VENDOR_MAINTENANCE_TCODES = {"XK02", "FK02", "XK05"}
-    PAYMENT_TCODES = {"F110", "F-53"}
+    PAYMENT_RUN_TCODES = {"F110"}
+    VENDOR_BANK_TABLES = {"LFBK"}
+    VENDOR_BANK_FIELDS = {"BANKN", "IBAN", "BANKL"}
 
     def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
         vendor_tcodes = features.tcodes & self.VENDOR_MAINTENANCE_TCODES
-        payment_tcodes = features.tcodes & self.PAYMENT_TCODES
+        payment_tcodes = features.tcodes & self.PAYMENT_RUN_TCODES
+        bank_change_evidence = self._vendor_bank_change_evidence(session)
 
-        if not vendor_tcodes or not payment_tcodes:
+        if not payment_tcodes or not bank_change_evidence:
             return []
 
-        evidence = ", ".join(sorted(vendor_tcodes | payment_tcodes))
+        evidence_items = sorted(vendor_tcodes | payment_tcodes)
+        evidence_items.extend(bank_change_evidence)
+        evidence = ", ".join(evidence_items)
         return [
             self.finding(
                 location="transaction_log",
-                description="SoD conflict: vendor maintenance and payment execution occurred in the same firefighter session.",
+                description="SoD conflict: vendor bank-data change and payment run occurred in the same firefighter session.",
                 evidence=evidence,
             )
         ]
+
+    def _vendor_bank_change_evidence(self, session: Session) -> list[str]:
+        evidence: list[str] = []
+        for entry in session.change_log:
+            table = str(entry.get("table", "")).strip().upper()
+            field = str(entry.get("field", "")).strip().upper()
+            if table in self.VENDOR_BANK_TABLES or field in self.VENDOR_BANK_FIELDS:
+                evidence.append(f"{table}.{field}".strip("."))
+        return evidence[:3]
 
 
 class R011MissingTicketForProductionChangeRule(Rule):
@@ -514,9 +603,17 @@ class R013RepeatedAuthFailuresBeforeSensitiveChangeRule(Rule):
 
 
 def default_rules() -> list[Rule]:
+def default_rules(
+    use_r002_llm: bool = False,
+    r002_llm_assessor: R002LlmAssessor | None = None,
+    ollama_model: str | None = None,
+) -> list[Rule]:
+    if r002_llm_assessor is None and use_r002_llm:
+        r002_llm_assessor = OllamaR002Assessor(model=ollama_model)
+
     return [
         R001WeakReasonRule(),
-        R002ReasonActionMismatchRule(),
+        R002ReasonActionMismatchRule(llm_assessor=r002_llm_assessor),
         R003DebugActivityRule(),
         R004DirectTableModificationRule(),
         R005OsCommandRule(),
@@ -540,3 +637,11 @@ class RuleEngine:
         for rule in self.rules:
             findings.extend(rule.check(session, features))
         return findings
+
+    def diagnostics(self) -> dict:
+        diagnostics = {}
+        for rule in self.rules:
+            rule_diagnostics = getattr(rule, "diagnostics", None)
+            if callable(rule_diagnostics):
+                diagnostics.update(rule_diagnostics())
+        return diagnostics

@@ -99,6 +99,7 @@ button:disabled {
 .decision-panel,
 .findings-panel,
 .correction-panel,
+.llm-panel,
 .logs-panel {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -134,9 +135,49 @@ button:disabled {
   padding: 9px;
 }
 
+.review-options {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.toggle-option,
+.model-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.toggle-option input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.model-option input {
+  width: 180px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-muted);
+  padding: 8px 9px;
+}
+
 .error-message {
   margin: 10px 0 0;
   color: var(--reject);
+  font-weight: 700;
+}
+
+.review-status {
+  min-height: 20px;
+  margin: 12px 0 0;
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -152,6 +193,7 @@ button:disabled {
 
 .findings-panel,
 .correction-panel,
+.llm-panel,
 .logs-panel {
   grid-column: 1 / -1;
 }
@@ -292,6 +334,56 @@ textarea {
   margin: 12px 0 0;
 }
 
+.llm-content dl {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.llm-content dl div {
+  display: grid;
+  gap: 4px;
+}
+
+.llm-status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.llm-status-row p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.llm-status {
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+.llm-status.matched {
+  color: var(--reject);
+}
+
+.llm-status.no_mismatch,
+.llm-status.low_confidence,
+.llm-status.skipped_heuristic_hit {
+  color: var(--correction);
+}
+
+.llm-status.timeout,
+.llm-status.request_error,
+.llm-status.invalid_json,
+.llm-status.error,
+.llm-status.incomplete_response {
+  color: var(--reject);
+}
+
 .correction-content h3 {
   margin: 12px 0 6px;
   font-size: 15px;
@@ -326,9 +418,19 @@ pre {
 @media (max-width: 760px) {
   .top-bar,
   .upload-row,
+  .review-options,
   .summary-header {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .toggle-option,
+  .model-option {
+    align-items: flex-start;
+  }
+
+  .model-option input {
+    width: 100%;
   }
 
   .result-grid {

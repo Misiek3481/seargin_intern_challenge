@@ -12,6 +12,7 @@ def review_result_to_dict(result: ReviewResult) -> dict[str, Any]:
         "confidence": result.confidence,
         "findings": [finding_to_dict(finding) for finding in result.findings],
         "suggested_correction": correction_to_dict(result.suggested_correction),
+        "diagnostics": result.diagnostics,
     }
 
 

@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Literal
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -33,11 +33,15 @@ def health() -> dict[str, str]:
 
 
 @app.post("/review")
-async def review_session(request: Request) -> dict:
+async def review_session(
+    request: Request,
+    use_llm_r002: bool = Query(False),
+    ollama_model: str | None = Query(None),
+) -> dict:
     try:
         payload = await request.json()
         session = SessionParser().parse_dict(payload)
-        result = ReviewEngine().review_session(session)
+        result = ReviewEngine(use_r002_llm=use_llm_r002, ollama_model=ollama_model).review_session(session)
     except json.JSONDecodeError as exc:
         raise HTTPException(status_code=400, detail="Request body must be valid JSON.") from exc
     except InvalidSessionError as exc:
