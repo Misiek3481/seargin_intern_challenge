@@ -601,8 +601,6 @@ class R013RepeatedAuthFailuresBeforeSensitiveChangeRule(Rule):
 
         return changes
 
-
-def default_rules() -> list[Rule]:
 def default_rules(
     use_r002_llm: bool = False,
     r002_llm_assessor: R002LlmAssessor | None = None,
