@@ -1,10 +1,23 @@
 from __future__ import annotations
 
+from datetime import datetime, timedelta
+
 from sap_ff_reviewer.models import Finding, Session, SessionFeatures
 
-# TODO: Consider additional rules after reviewing train/test patterns:
-# - R-012: Logs outside the declared firefighter time window.
-# - R-013: Repeated failed authorization checks followed by sensitive changes.
+
+def _parse_log_timestamp(value: object, reference: datetime) -> datetime | None:
+    if not isinstance(value, str) or not value.strip():
+        return None
+
+    try:
+        timestamp = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+    if timestamp.tzinfo is None and reference.tzinfo is not None:
+        timestamp = timestamp.replace(tzinfo=reference.tzinfo)
+
+    return timestamp
 
 
 class Rule:
@@ -361,6 +374,145 @@ class R011MissingTicketForProductionChangeRule(Rule):
         ]
 
 
+class R012LogOutsideFirefighterWindowRule(Rule):
+    rule_id = "R-012"
+    severity = "high"
+    CLOCK_SKEW_TOLERANCE = timedelta(minutes=5)
+    LOG_FIELDS = (
+        "transaction_log",
+        "change_log",
+        "system_log",
+        "os_command_log",
+    )
+
+    def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        findings = []
+        lower_bound = session.start_time - self.CLOCK_SKEW_TOLERANCE
+        upper_bound = session.end_time + self.CLOCK_SKEW_TOLERANCE
+
+        for log_name in self.LOG_FIELDS:
+            entries = getattr(session, log_name)
+            for index, entry in enumerate(entries):
+                timestamp = _parse_log_timestamp(entry.get("timestamp"), session.start_time)
+                if timestamp is None or lower_bound <= timestamp <= upper_bound:
+                    continue
+
+                findings.append(
+                    self.finding(
+                        location=f"{log_name}[{index}].timestamp",
+                        description="Log entry timestamp falls outside the declared firefighter access window.",
+                        evidence=(
+                            f"timestamp={entry.get('timestamp')}; "
+                            f"window={session.start_time.isoformat()}..{session.end_time.isoformat()}"
+                        ),
+                    )
+                )
+
+        return findings
+
+
+class R013RepeatedAuthFailuresBeforeSensitiveChangeRule(Rule):
+    rule_id = "R-013"
+    severity = "high"
+    MIN_AUTH_CHECKS = 2
+    AUTH_CHECK_TCODE = "SU53"
+    AUTH_FAILURE_MARKERS = (
+        "authorization check",
+        "authorization failed",
+        "failed authorization",
+        "not authorized",
+        "no authorization",
+        "missing authorization",
+    )
+    SENSITIVE_TABLES = {
+        "T001",
+        "LFA1",
+        "LFB1",
+        "LFBK",
+        "USR02",
+        "UST04",
+        "USR12",
+        "AGR_USERS",
+        "AGR_1251",
+        "AGR_DEFINE",
+    }
+    SENSITIVE_FIELDS = {
+        "ACTVT",
+        "AGR_NAME",
+        "BANKL",
+        "BANKN",
+        "IBAN",
+        "PROFILE",
+        "SPERR",
+        "UFLAG",
+        "WAERS",
+    }
+
+    def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
+        auth_events = self._auth_check_events(session)
+        if len(auth_events) < self.MIN_AUTH_CHECKS:
+            return []
+
+        threshold = auth_events[self.MIN_AUTH_CHECKS - 1]
+        sensitive_changes = self._sensitive_changes_after(session, threshold)
+        if not sensitive_changes:
+            return []
+
+        first_change = sensitive_changes[0]
+        return [
+            self.finding(
+                location="transaction_log/change_log",
+                description=(
+                    "Repeated authorization-check reviews were followed by sensitive data changes; "
+                    "this may indicate the firefighter did not have the required authorization before the later change."
+                ),
+                evidence=(
+                    f"authorization_checks={len(auth_events)}; "
+                    f"second_check={threshold.isoformat()}; "
+                    f"sensitive_change={first_change}"
+                ),
+            )
+        ]
+
+    def _auth_check_events(self, session: Session) -> list[datetime]:
+        events: list[datetime] = []
+
+        for entry in session.transaction_log:
+            timestamp = _parse_log_timestamp(entry.get("timestamp"), session.start_time)
+            if timestamp is None:
+                continue
+
+            tcode = str(entry.get("tcode", "")).strip().upper()
+            description = str(entry.get("description", "")).lower()
+            if tcode == self.AUTH_CHECK_TCODE or any(marker in description for marker in self.AUTH_FAILURE_MARKERS):
+                events.append(timestamp)
+
+        for entry in session.system_log:
+            timestamp = _parse_log_timestamp(entry.get("timestamp"), session.start_time)
+            if timestamp is None:
+                continue
+
+            message = str(entry.get("message", "")).lower()
+            if any(marker in message for marker in self.AUTH_FAILURE_MARKERS):
+                events.append(timestamp)
+
+        return sorted(events)
+
+    def _sensitive_changes_after(self, session: Session, threshold: datetime) -> list[str]:
+        changes: list[str] = []
+        for entry in session.change_log:
+            timestamp = _parse_log_timestamp(entry.get("timestamp"), session.start_time)
+            if timestamp is None or timestamp <= threshold:
+                continue
+
+            table = str(entry.get("table", "")).strip().upper()
+            field = str(entry.get("field", "")).strip().upper()
+            if table in self.SENSITIVE_TABLES or field in self.SENSITIVE_FIELDS:
+                changes.append(f"{table}.{field} at {timestamp.isoformat()}".strip("."))
+
+        return changes
+
+
 def default_rules() -> list[Rule]:
     return [
         R001WeakReasonRule(),
@@ -374,6 +526,8 @@ def default_rules() -> list[Rule]:
         R009LongSessionWithoutRejustificationRule(),
         R010SodConflictRule(),
         R011MissingTicketForProductionChangeRule(),
+        R012LogOutsideFirefighterWindowRule(),
+        R013RepeatedAuthFailuresBeforeSensitiveChangeRule(),
     ]
 
 

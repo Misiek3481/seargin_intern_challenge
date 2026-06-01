@@ -12,6 +12,8 @@ from sap_ff_reviewer.rules import (
     R009LongSessionWithoutRejustificationRule,
     R010SodConflictRule,
     R011MissingTicketForProductionChangeRule,
+    R012LogOutsideFirefighterWindowRule,
+    R013RepeatedAuthFailuresBeforeSensitiveChangeRule,
     RuleEngine,
 )
 
@@ -324,6 +326,73 @@ def test_r011_does_not_flag_production_change_with_ticket_reference():
     features = extract_features(session)
 
     findings = R011MissingTicketForProductionChangeRule().check(session, features)
+
+    assert findings == []
+
+
+def test_r012_flags_log_entry_outside_firefighter_window():
+    session = make_session(
+        {
+            "end_time": "2026-05-12T13:00:00Z",
+            "transaction_log": [{"timestamp": "2026-05-12T13:06:00Z", "tcode": "MIGO"}],
+        }
+    )
+    features = extract_features(session)
+
+    findings = R012LogOutsideFirefighterWindowRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-012"
+    assert findings[0].severity == "high"
+    assert findings[0].location == "transaction_log[0].timestamp"
+
+
+def test_r012_allows_small_clock_skew_after_window():
+    session = make_session(
+        {
+            "end_time": "2026-05-12T13:00:00Z",
+            "transaction_log": [{"timestamp": "2026-05-12T13:03:00Z", "tcode": "MIGO"}],
+        }
+    )
+    features = extract_features(session)
+
+    findings = R012LogOutsideFirefighterWindowRule().check(session, features)
+
+    assert findings == []
+
+
+def test_r013_flags_repeated_auth_checks_followed_by_sensitive_change():
+    session = make_session(
+        {
+            "transaction_log": [
+                {"timestamp": "2026-05-12T12:10:00Z", "tcode": "SU53", "description": "Display Authorization Check"},
+                {"timestamp": "2026-05-12T12:11:00Z", "tcode": "SU53", "description": "Display Authorization Check"},
+            ],
+            "change_log": [{"timestamp": "2026-05-12T12:12:00Z", "table": "LFA1", "field": "SPERR"}],
+        }
+    )
+    features = extract_features(session)
+
+    findings = R013RepeatedAuthFailuresBeforeSensitiveChangeRule().check(session, features)
+
+    assert len(findings) == 1
+    assert findings[0].rule_id == "R-013"
+    assert findings[0].severity == "high"
+    assert findings[0].location == "transaction_log/change_log"
+
+
+def test_r013_does_not_flag_single_auth_check_before_sensitive_change():
+    session = make_session(
+        {
+            "transaction_log": [
+                {"timestamp": "2026-05-12T12:10:00Z", "tcode": "SU53", "description": "Display Authorization Check"},
+            ],
+            "change_log": [{"timestamp": "2026-05-12T12:12:00Z", "table": "LFA1", "field": "SPERR"}],
+        }
+    )
+    features = extract_features(session)
+
+    findings = R013RepeatedAuthFailuresBeforeSensitiveChangeRule().check(session, features)
 
     assert findings == []
 
