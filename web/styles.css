@@ -99,6 +99,7 @@ button:disabled {
 .decision-panel,
 .findings-panel,
 .correction-panel,
+.llm-panel,
 .logs-panel {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -173,6 +174,13 @@ button:disabled {
   font-weight: 700;
 }
 
+.review-status {
+  min-height: 20px;
+  margin: 12px 0 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .hidden {
   display: none;
 }
@@ -185,6 +193,7 @@ button:disabled {
 
 .findings-panel,
 .correction-panel,
+.llm-panel,
 .logs-panel {
   grid-column: 1 / -1;
 }
@@ -323,6 +332,56 @@ textarea {
   display: grid;
   gap: 10px;
   margin: 12px 0 0;
+}
+
+.llm-content dl {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.llm-content dl div {
+  display: grid;
+  gap: 4px;
+}
+
+.llm-status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.llm-status-row p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.llm-status {
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+.llm-status.matched {
+  color: var(--reject);
+}
+
+.llm-status.no_mismatch,
+.llm-status.low_confidence,
+.llm-status.skipped_heuristic_hit {
+  color: var(--correction);
+}
+
+.llm-status.timeout,
+.llm-status.request_error,
+.llm-status.invalid_json,
+.llm-status.error,
+.llm-status.incomplete_response {
+  color: var(--reject);
 }
 
 .correction-content h3 {

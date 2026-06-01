@@ -32,6 +32,7 @@
             <input id="ollamaModel" type="text" value="llama3.1" autocomplete="off">
           </label>
         </div>
+        <p id="reviewStatus" class="review-status" aria-live="polite"></p>
         <p id="errorMessage" class="error-message" role="alert"></p>
       </section>
 
@@ -87,6 +88,13 @@
             <h2>Suggested Correction</h2>
           </div>
           <div id="correctionContent" class="correction-content"></div>
+        </section>
+
+        <section id="llmPanel" class="llm-panel hidden">
+          <div class="section-heading">
+            <h2>R-002 LLM Status</h2>
+          </div>
+          <div id="llmContent" class="llm-content"></div>
         </section>
 
         <section class="logs-panel">

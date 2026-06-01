@@ -78,13 +78,22 @@ class R002ReasonActionMismatchRule(Rule):
 
     def __init__(self, llm_assessor: R002LlmAssessor | None = None):
         self.llm_assessor = llm_assessor
+        self._llm_diagnostic: dict | None = None
 
     def check(self, session: Session, features: SessionFeatures) -> list[Finding]:
         heuristic_findings = self._check_heuristic(session, features)
         if heuristic_findings or self.llm_assessor is None:
+            if heuristic_findings and self.llm_assessor is not None:
+                self._llm_diagnostic = {
+                    "status": "skipped_heuristic_hit",
+                    "message": "Ollama was not called because the R-002 heuristic already produced a finding.",
+                }
+            else:
+                self._llm_diagnostic = None
             return heuristic_findings
 
         assessment = self.llm_assessor.assess(session, features)
+        self._llm_diagnostic = getattr(self.llm_assessor, "last_diagnostic", None)
         if assessment is None:
             return []
 
@@ -95,6 +104,11 @@ class R002ReasonActionMismatchRule(Rule):
                 evidence=assessment.evidence,
             )
         ]
+
+    def diagnostics(self) -> dict:
+        if self._llm_diagnostic is None:
+            return {}
+        return {"r002_llm": self._llm_diagnostic}
 
     def _check_heuristic(self, session: Session, features: SessionFeatures) -> list[Finding]:
         reason = features.reason.lower()
@@ -391,3 +405,11 @@ class RuleEngine:
         for rule in self.rules:
             findings.extend(rule.check(session, features))
         return findings
+
+    def diagnostics(self) -> dict:
+        diagnostics = {}
+        for rule in self.rules:
+            rule_diagnostics = getattr(rule, "diagnostics", None)
+            if callable(rule_diagnostics):
+                diagnostics.update(rule_diagnostics())
+        return diagnostics

@@ -37,6 +37,7 @@ class ReviewEngine:
         verdict = self.verdict_aggregator.aggregate(findings)
         confidence = self.verdict_aggregator.confidence(verdict, findings)
         correction = self.correction_builder.build(session, findings, verdict)
+        diagnostics = self.rule_engine.diagnostics()
 
         return ReviewResult(
             session_id=session.session_id,
@@ -44,4 +45,5 @@ class ReviewEngine:
             confidence=confidence,
             findings=findings,
             suggested_correction=correction,
+            diagnostics=diagnostics,
         )

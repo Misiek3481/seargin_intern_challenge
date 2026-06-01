@@ -2,6 +2,7 @@ const fileInput = document.querySelector("#sessionFile");
 const reviewButton = document.querySelector("#reviewButton");
 const useLlmR002 = document.querySelector("#useLlmR002");
 const ollamaModel = document.querySelector("#ollamaModel");
+const reviewStatus = document.querySelector("#reviewStatus");
 const errorMessage = document.querySelector("#errorMessage");
 const resultPanel = document.querySelector("#resultPanel");
 const statusBadge = document.querySelector("#statusBadge");
@@ -13,6 +14,8 @@ const ticketValue = document.querySelector("#ticketValue");
 const findingsCount = document.querySelector("#findingsCount");
 const findingsList = document.querySelector("#findingsList");
 const correctionContent = document.querySelector("#correctionContent");
+const llmPanel = document.querySelector("#llmPanel");
+const llmContent = document.querySelector("#llmContent");
 const logsContent = document.querySelector("#logsContent");
 const decisionComment = document.querySelector("#decisionComment");
 const decisionStatus = document.querySelector("#decisionStatus");
@@ -46,6 +49,10 @@ async function reviewSelectedFile() {
 
   try {
     reviewButton.disabled = true;
+    reviewButton.textContent = "Reviewing...";
+    reviewStatus.textContent = useLlmR002.checked
+      ? "Waiting for Ollama R-002 response. This can take up to 90 seconds."
+      : "Running heuristic review.";
     currentSession = payload;
     const params = new URLSearchParams({
       use_llm_r002: useLlmR002.checked ? "true" : "false",
@@ -71,6 +78,8 @@ async function reviewSelectedFile() {
     showError(error.message);
   } finally {
     reviewButton.disabled = false;
+    reviewButton.textContent = "Review";
+    reviewStatus.textContent = "";
   }
 }
 
@@ -87,6 +96,7 @@ function renderReview(review, session) {
 
   renderFindings(review.findings || []);
   renderCorrection(review.suggested_correction);
+  renderLlmDiagnostics(review.diagnostics?.r002_llm);
   renderLogs(session);
 }
 
@@ -128,6 +138,42 @@ function renderCorrection(correction) {
     <p>${escapeHtml(correction.message_to_firefighter)}</p>
     <h3>Suggested reason rewrite</h3>
     <p>${escapeHtml(correction.suggested_reason_rewrite || "-")}</p>
+  `;
+}
+
+function renderLlmDiagnostics(diagnostic) {
+  if (!diagnostic) {
+    llmPanel.classList.add("hidden");
+    llmContent.innerHTML = "";
+    return;
+  }
+
+  llmPanel.classList.remove("hidden");
+  const confidence = typeof diagnostic.confidence === "number"
+    ? Number(diagnostic.confidence).toFixed(2)
+    : "-";
+  const mismatch = typeof diagnostic.mismatch === "boolean"
+    ? String(diagnostic.mismatch)
+    : "-";
+  const elapsed = typeof diagnostic.elapsed_ms === "number"
+    ? `${diagnostic.elapsed_ms} ms`
+    : "-";
+
+  llmContent.innerHTML = `
+    <div class="llm-status-row">
+      <span class="llm-status ${escapeHtml(diagnostic.status || "unknown")}">${escapeHtml(diagnostic.status || "unknown")}</span>
+      <p>${escapeHtml(diagnostic.message || "No LLM status message returned.")}</p>
+    </div>
+    <dl>
+      <div><dt>Model</dt><dd>${escapeHtml(diagnostic.model || "-")}</dd></div>
+      <div><dt>Elapsed</dt><dd>${escapeHtml(elapsed)}</dd></div>
+      <div><dt>Timeout</dt><dd>${escapeHtml(diagnostic.timeout_seconds || "-")}s</dd></div>
+      <div><dt>Mismatch</dt><dd>${escapeHtml(mismatch)}</dd></div>
+      <div><dt>Confidence</dt><dd>${escapeHtml(confidence)}</dd></div>
+      <div><dt>Description</dt><dd>${escapeHtml(diagnostic.description || "-")}</dd></div>
+      <div><dt>Evidence</dt><dd>${escapeHtml(diagnostic.evidence || "-")}</dd></div>
+      <div><dt>Error</dt><dd>${escapeHtml(diagnostic.error || "-")}</dd></div>
+    </dl>
   `;
 }
 
